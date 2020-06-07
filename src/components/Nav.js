@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 
 const Navigation = styled.nav`
   padding: 3rem;
@@ -24,8 +24,55 @@ const Navigation = styled.nav`
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: 500;
-    color: #fff;
+
     letter-spacing: 0.2rem;
+
+    color: transparent;
+    position: relative;
+    -webkit-background-clip: text, padding-box;
+    background-clip: text, padding-box;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(
+      to top,
+      ${props => props.theme.pink} 50%,
+      ${props => props.theme.white} 50%
+    );
+    background-size: 100% 200%;
+    background-position: top;
+    transition: background-position 1s ease;
+
+    &:hover {
+      background-position: bottom;
+    }
+  }
+
+  li:nth-child(1) a {
+    background-image: linear-gradient(
+      to top,
+      ${props => props.theme.pink} 50%,
+      ${props => props.theme.white} 50%
+    );
+  }
+  li:nth-child(2) a {
+    background-image: linear-gradient(
+      to top,
+      ${props => props.theme.lightBlue} 50%,
+      ${props => props.theme.white} 50%
+    );
+  }
+  li:nth-child(3) a {
+    background-image: linear-gradient(
+      to top,
+      ${props => props.theme.yellow} 50%,
+      ${props => props.theme.white} 50%
+    );
+  }
+  li:nth-child(4) a {
+    background-image: linear-gradient(
+      to top,
+      ${props => props.theme.green} 50%,
+      ${props => props.theme.white} 50%
+    );
   }
 `
 
