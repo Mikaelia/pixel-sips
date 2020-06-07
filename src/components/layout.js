@@ -7,8 +7,19 @@ import { GlobalStyle, theme } from "../styled/globalStyles"
 
 const MainWrapper = styled.div`
   width: 100%;
+  height: 100%;
   /* max-width: 1200px; */
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  footer {
+    flex-shrink: 0;
+  }
 `
 
 const Layout = ({ location, title, children }) => {

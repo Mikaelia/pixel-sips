@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 
     html {
         font-size: 62.5%;
+        height: 100%;
     }
 
     body {
@@ -19,7 +20,17 @@ export const GlobalStyle = createGlobalStyle`
         background: #fff;
         font-size: 1.4rem;
         letter-spacing: .05rem;
+        height: 100%;
+
+        > *{
+            height: 100%;
+        }
+
+        #gatsby-focus-wrapper {
+            height: 100%;
+        }
     }
+
     h1, h2, h3, h4 {
          font-family: 'Muli', sans-serif;
          font-weight: 800;
