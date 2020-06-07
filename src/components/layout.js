@@ -1,8 +1,9 @@
 import React from "react"
 import Nav from "./Nav.js"
+import Footer from "./Footer.js"
 
-import styled from "styled-components"
-import { GlobalStyle } from "../styled/globalStyles"
+import styled, { ThemeProvider } from "styled-components"
+import { GlobalStyle, theme } from "../styled/globalStyles"
 
 const MainWrapper = styled.div`
   width: 100%;
@@ -13,12 +14,14 @@ const MainWrapper = styled.div`
 const Layout = ({ location, title, children }) => {
   return (
     <>
-      <GlobalStyle />
-      <MainWrapper>
-        <Nav></Nav>
-        <main>{children}</main>
-        <footer>© 2020-present Mikaela Gurney. All Rights Reserved.</footer>
-      </MainWrapper>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <MainWrapper>
+          <Nav></Nav>
+          <main>{children}</main>
+          <Footer />
+        </MainWrapper>
+      </ThemeProvider>
     </>
   )
 }

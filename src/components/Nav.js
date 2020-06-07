@@ -3,16 +3,29 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 const Navigation = styled.nav`
-  background: orange;
-  margin-top: -3rem;
-
+  padding: 3rem;
+  background: #12182f;
   ul {
     display: flex;
     list-style: none;
+    align-items: center;
+  }
+
+  ul * + * {
+    margin-left: 5rem;
+  }
+
+  li:first-of-type a {
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
   }
 
   a {
-    box-shadow: none;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 0.2rem;
   }
 `
 
@@ -20,6 +33,11 @@ export default function Nav() {
   return (
     <Navigation className="nav">
       <ul className="nav-list">
+        <li className="nav-list-item">
+          <Link className="nav-link" activeClassName="nav-link--active" to="/">
+            Mikaela Gurney
+          </Link>
+        </li>
         <li className="nav-list-item">
           <Link className="nav-link" activeClassName="nav-link--active" to="/">
             About

@@ -15,7 +15,10 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         box-sizing: border-box;
-        padding: 3rem;
         font-family: 'IBM Plex Sans', sans-serif;
+        background: #fff
     }
 `
+export const theme = {
+  black: "#12182F",
+}

@@ -1,11 +1,21 @@
 // Gatsby supports TypeScript natively!
 import React from "react"
-import { PageProps, Link, graphql } from "gatsby"
+import { PageProps, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
+import styled from "styled-components"
+import PostGrid from "../components/PostGrid.js"
 
+const HeaderSection = styled.section`
+  background: ${props => props.theme.black};
+  height: 30rem;
+`
+const MainSection = styled.section`
+  background: #e7edf3;
+  padding: 5rem 3rem;
+  height: 50rem;
+`
 type Data = {
   site: {
     siteMetadata: {
@@ -36,28 +46,10 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
-        return (
-          <article key={node.fields.slug}>
-            <header>
-              <h3>
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
-          </article>
-        )
-      })}
+      <HeaderSection></HeaderSection>
+      <MainSection>
+        <PostGrid posts={posts} />
+      </MainSection>
     </Layout>
   )
 }
