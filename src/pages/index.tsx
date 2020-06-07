@@ -124,7 +124,7 @@ const HeaderSection = styled.section`
     position: relative;
     margin-left: 2rem;
     height: 3rem;
-    width: 2rem;
+    width: 2.4rem;
     border-radius: 0.5rem;
     background: ${props => props.theme.pink};
     transform: rotate(-20deg);
@@ -149,8 +149,8 @@ const HeaderSection = styled.section`
     :after {
       content: "";
       position: absolute;
-      height: 0.3rem;
-      width: 1.5rem;
+      height: 3.5px;
+      width: 1.8rem;
       background: ${props => props.theme.yellow};
       top: 2px;
       left: 2.5px;
