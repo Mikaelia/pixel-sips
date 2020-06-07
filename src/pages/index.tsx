@@ -33,7 +33,7 @@ const fill = keyframes`
       background-position: top;
 }
 
-50% {
+80% {
       background-position: bottom;
 }
 
@@ -44,19 +44,39 @@ const fill = keyframes`
 
 const spill = keyframes`
 0% {
+  top: 0px;
+    left: 20px;
+}
 
-      left: -6px;
+10% {
+top: -5px;
 }
 
 30% {
-transform: rotate(150deg);
+transform: rotate(100deg);
+top: 10px;
 left: -10px;
-
-
 }
+
+40% {
+
+  top: -5px;
+}
+
 60% {
 transform: rotate(180deg);
-  left: -6px;
+  top: 10px;
+    left: 20px;
+
+}
+
+
+60% {
+  z-index: -1;
+}
+
+100% {
+z-index: -1;
 }
 
 
@@ -67,12 +87,23 @@ const HeaderSection = styled.section`
   height: 30rem;
   color: ${props => props.theme.white};
   font-size: 4rem;
-  font-family: "Bai Jamjuree";
-  font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
 
+  .title {
+    display: flex;
+    align-items: center;
+  }
+
+  .cup-wrapper {
+    position: relative;
+  }
+
+  p {
+    font-family: "Bai Jamjuree";
+    font-weight: 800;
+  }
   .s {
     color: transparent;
     position: relative;
@@ -98,7 +129,7 @@ const HeaderSection = styled.section`
     background: ${props => props.theme.pink};
     transform: rotate(-20deg);
     animation: ${rotate} 2s linear infinite;
-
+    z-index: 0;
     :hover {
       transform: rotate(-40deg);
     }
@@ -125,18 +156,18 @@ const HeaderSection = styled.section`
       left: 2.5px;
       border-radius: 50%;
     }
-
-    .splash {
-      position: absolute;
-      transform: rotate(180deg) skew(12deg);
-      top: -10px;
-      left: -6px;
-      height: 0.6rem;
-      width: 0.6rem;
-      border-radius: 0 50% 50% 50%;
-      background: ${props => props.theme.yellow};
-      animation: ${spill} 2s linear infinite;
-    }
+  }
+  .splash {
+    position: absolute;
+    transform: rotate(180deg) skew(12deg);
+    top: 0px;
+    left: 20px;
+    height: 0.6rem;
+    width: 0.6rem;
+    border-radius: 0 50% 50% 50%;
+    background: ${props => props.theme.yellow};
+    z-index: 1;
+    animation: ${spill} 2s infinite;
   }
 `
 
@@ -175,11 +206,14 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
       <HeaderSection>
-        <p>
-          pixel sip<span className="s">s</span>
-        </p>
-        <div className="cup">
-          <div className="splash"></div>
+        <div className="title">
+          <p>
+            pixel sip<span className="s">s</span>
+          </p>
+          <div className="cup-wrapper">
+            <div className="splash"></div>
+            <div className="cup"></div>
+          </div>
         </div>
       </HeaderSection>
       <MainSection>

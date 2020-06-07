@@ -60,13 +60,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `PixelSips`,
+        short_name: `PixelSips`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `public/cup-icon.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -75,10 +75,10 @@ module.exports = {
       options: {
         google: {
           families: [
-            "IBM Plex Sans",
-            "Bai Jamjuree:800",
-            "IBM Plex Mono",
+            // "IBM Plex Sans",
+            // "IBM Plex Mono",
             "Muli:300,400,600,700,800",
+            "Bai Jamjuree:700",
           ],
         },
       },
