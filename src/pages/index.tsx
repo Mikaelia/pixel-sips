@@ -6,6 +6,42 @@ import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import styled from "styled-components"
 import PostGrid from "../components/PostGrid.js"
+import { keyframes } from "styled-components"
+
+const rotate = keyframes`
+  0% {
+    transform:  rotate(-20deg);
+  }
+
+  25% {
+    transform: rotate(-40deg);
+  }
+
+  50% {
+     transform:  rotate(-20deg);
+  }
+
+  75% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform:  rotate(-20deg);
+  }
+`
+const spill = keyframes`
+0% {
+      background-position: top;
+}
+
+50% {
+      background-position: bottom;
+}
+
+100% {
+ background-position: top;
+}
+`
 
 const HeaderSection = styled.section`
   background: ${props => props.theme.black};
@@ -18,6 +54,20 @@ const HeaderSection = styled.section`
   align-items: center;
   justify-content: center;
 
+  .s {
+      color: transparent;
+      position: relative;
+      -webkit-background-clip: text,padding-box;
+  background-clip: text,padding-box;
+  -webkit-text-fill-color: transparent;
+  background-image: 
+    linear-gradient(to top, ${props => props.theme.yellow} 50%, #000 50%);
+      background-size: 100% 200%;
+  background-position: top;
+  animation: ${spill} 2s ease-in-out infinite;
+
+  }
+
   .cup {
     position: relative;
     margin-left: 2rem;
@@ -26,6 +76,12 @@ const HeaderSection = styled.section`
     border-radius: 0.5rem;
     background: ${props => props.theme.pink};
     transform: rotate(-20deg);
+    animation: ${rotate} 2s linear infinite;
+ 
+
+    :hover {
+      transform: rotate(-40deg);
+    }
 
     :before {
       content: "";
@@ -33,7 +89,7 @@ const HeaderSection = styled.section`
       height: 2rem;
       width: 1rem;
       background: ${props => props.theme.black};
-      right: -0.9rem;
+      right: -8px;
       top: 0.5rem;
       border-radius: 0.3rem;
       box-shadow: inset 0 0 0 2.5px ${props => props.theme.pink};
@@ -42,10 +98,10 @@ const HeaderSection = styled.section`
     :after {
       content: "";
       position: absolute;
-      height: 0.4rem;
+      height: 0.3rem;
       width: 1.5rem;
       background: ${props => props.theme.yellow};
-      top: 1px;
+      top: 2px;
       left: 2.5px;
       border-radius: 50%;
     }
@@ -59,9 +115,14 @@ const HeaderSection = styled.section`
       width: 0.6rem;
       border-radius: 0 50% 50% 50%;
       background: ${props => props.theme.yellow};
+      /* animation: ${spill} 0.5s linear infinite;
+      animation-delay: 1s; */
     }
+
   }
+     
 `
+
 const MainSection = styled.section`
   background: #e7edf3;
   padding: 5rem 3rem;
@@ -97,7 +158,9 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
       <HeaderSection>
-        <p>pixel sips</p>
+        <p>
+          pixel sip<span className="s">s</span>
+        </p>
         <div className="cup">
           <div className="splash"></div>
         </div>

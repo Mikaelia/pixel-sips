@@ -49,7 +49,7 @@ export default function Nav() {
             activeClassName="nav-link--active"
             to="/about"
           >
-            Snippets
+            Sippets
           </Link>
         </li>
         <li className="nav-list-item">
