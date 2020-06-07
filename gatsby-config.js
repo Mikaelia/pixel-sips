@@ -66,7 +66,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `public/cup-icon.png`,
+        icon: `${__dirname}/public/cup-icon.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
