@@ -70,6 +70,19 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        google: {
+          families: [
+            "IBM Plex Sans",
+            "Bai Jamjuree",
+            "IBM Plex Mono",
+            "Muli:300,400,600,700,800",
+          ],
+        },
+      },
+    },
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

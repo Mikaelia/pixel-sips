@@ -4,6 +4,7 @@ import styled from "styled-components"
 const StyledFooter = styled.footer`
   background: ${props => props.theme.black};
   height: 15rem;
+  color: ${props => props.theme.white};
 `
 export default function Footer() {
   return (

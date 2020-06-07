@@ -14,7 +14,6 @@ const HeaderSection = styled.section`
 const MainSection = styled.section`
   background: #e7edf3;
   padding: 5rem 3rem;
-  height: 50rem;
 `
 type Data = {
   site: {
