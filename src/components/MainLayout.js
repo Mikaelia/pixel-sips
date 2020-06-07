@@ -4,8 +4,6 @@ import Footer from "./Footer.js"
 
 import styled, { ThemeProvider } from "styled-components"
 import { GlobalStyle, theme } from "../styled/globalStyles"
-require("typeface-muli")
-require("typeface-bai-jamjuree")
 
 const MainWrapper = styled.div`
   width: 100%;
