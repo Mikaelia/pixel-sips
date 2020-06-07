@@ -76,7 +76,7 @@ module.exports = {
         google: {
           families: [
             "IBM Plex Sans",
-            "Bai Jamjuree",
+            "Bai Jamjuree:800",
             "IBM Plex Mono",
             "Muli:300,400,600,700,800",
           ],
