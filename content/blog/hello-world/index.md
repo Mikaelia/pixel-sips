@@ -12,6 +12,6 @@ After I installed the necessary packages and updated by `gatsby-config.js` file,
 
 After a little poking around, I discovered that this was due to the gatsby-webfont loader.
 
-After following recommendations in this thread, I decided to import the typefaces instead. I required both of the fonts in my Layout file.
+After installing [this]('https://www.gatsbyjs.org/packages/gatsby-plugin-prefetch-google-fonts/')
 
-This fixed the problem.
+and adding my needed fonts to the configuration file, I was able to fix this issue.

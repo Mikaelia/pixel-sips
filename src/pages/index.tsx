@@ -101,8 +101,8 @@ const HeaderSection = styled.section`
   }
 
   p {
-    font-family: "Bai Jamjuree";
-    font-weight: 800;
+    font-family: "Bai Jamjuree", sans-serif;
+    font-weight: 700;
   }
   .s {
     color: transparent;
