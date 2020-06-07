@@ -12,9 +12,16 @@ const StyledPost = styled.div`
   border-color: rgb(228, 228, 231);
   border-image: initial;
 
+  article {
+    height: 100%;
+  }
+
   a {
     text-decoration: none;
     color: ${props => props.theme.black};
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 
   h3,
@@ -45,13 +52,15 @@ const StyledPost = styled.div`
   }
 
   p {
-    display: inline-block;
     margin-top: ${prop => prop.theme.spaceMed};
   }
 
   .read-more {
+    flex-grow: 1;
     margin-top: ${prop => prop.theme.spaceMed};
     font-weight: 800;
+    display: flex;
+    align-items: flex-end;
   }
 `
 
