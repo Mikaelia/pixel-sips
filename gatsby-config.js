@@ -70,19 +70,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        google: {
-          families: [
-            // "IBM Plex Sans",
-            // "IBM Plex Mono",
-            "Muli:300,400,600,700,800",
-            "Bai Jamjuree:700",
-          ],
-        },
-      },
-    },
+
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
