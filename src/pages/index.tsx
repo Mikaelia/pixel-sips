@@ -47,17 +47,14 @@ const spill = keyframes`
 
       left: -6px;
 }
-15% {
-   left: -6px;
-   transform: rotate(180deg);
-}
+
 30% {
 transform: rotate(150deg);
 left: -10px;
 
 
 }
-50% {
+60% {
 transform: rotate(180deg);
   left: -6px;
 }
