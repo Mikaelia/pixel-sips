@@ -1,7 +1,6 @@
 // Gatsby supports TypeScript natively!
 import React from "react"
 import { PageProps, graphql } from "gatsby"
-
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import styled from "styled-components"
@@ -29,7 +28,7 @@ const rotate = keyframes`
     transform:  rotate(-20deg);
   }
 `
-const spill = keyframes`
+const fill = keyframes`
 0% {
       background-position: top;
 }
@@ -41,6 +40,29 @@ const spill = keyframes`
 100% {
  background-position: top;
 }
+`
+
+const spill = keyframes`
+0% {
+
+      left: -6px;
+}
+15% {
+   left: -6px;
+   transform: rotate(180deg);
+}
+30% {
+transform: rotate(150deg);
+left: -10px;
+
+
+}
+50% {
+transform: rotate(180deg);
+  left: -6px;
+}
+
+
 `
 
 const HeaderSection = styled.section`
@@ -55,17 +77,19 @@ const HeaderSection = styled.section`
   justify-content: center;
 
   .s {
-      color: transparent;
-      position: relative;
-      -webkit-background-clip: text,padding-box;
-  background-clip: text,padding-box;
-  -webkit-text-fill-color: transparent;
-  background-image: 
-    linear-gradient(to top, ${props => props.theme.yellow} 50%, #000 50%);
-      background-size: 100% 200%;
-  background-position: top;
-  animation: ${spill} 2s ease-in-out infinite;
-
+    color: transparent;
+    position: relative;
+    -webkit-background-clip: text, padding-box;
+    background-clip: text, padding-box;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(
+      to top,
+      ${props => props.theme.yellow} 50%,
+      ${props => props.theme.white} 50%
+    );
+    background-size: 100% 200%;
+    background-position: top;
+    animation: ${fill} 2s ease infinite;
   }
 
   .cup {
@@ -77,7 +101,6 @@ const HeaderSection = styled.section`
     background: ${props => props.theme.pink};
     transform: rotate(-20deg);
     animation: ${rotate} 2s linear infinite;
- 
 
     :hover {
       transform: rotate(-40deg);
@@ -115,12 +138,9 @@ const HeaderSection = styled.section`
       width: 0.6rem;
       border-radius: 0 50% 50% 50%;
       background: ${props => props.theme.yellow};
-      /* animation: ${spill} 0.5s linear infinite;
-      animation-delay: 1s; */
+      animation: ${spill} 2s linear infinite;
     }
-
   }
-     
 `
 
 const MainSection = styled.section`
