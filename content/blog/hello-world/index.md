@@ -1,22 +1,17 @@
 ---
-title: Hello World
-date: "2015-05-01"
-description: "Hello World"
+title: Removing FOUC in a Netlify-deployed Gatsby Project
+date: "2020-06-07"
+description: "Fixing that flicker of unstyled content"
 ---
 
-This is my first post on my new fake blog! How exciting!
+While deploying this blog to Netlify for the first time, I realized that on refresh of my hosted page, I'd experience a flicker of unstyled content. Here were a couple of steps that I took to fix this.
 
-I'm sure I'll write a lot more interesting things in the future.
+1. I discovered that had not imported the gatsby-styled-components plugin. I had only imported styled components.
 
-Oh, and here's a great quote from this Wikipedia on
-[salted duck eggs](https://en.wikipedia.org/wiki/Salted_duck_egg).
+After I installed the necessary packages and updated by `gatsby-config.js` file, I was still seeing a flicker of unstyled fonts.
 
-> A salted duck egg is a Chinese preserved food product made by soaking duck
-> eggs in brine, or packing each egg in damp, salted charcoal. In Asian
-> supermarkets, these eggs are sometimes sold covered in a thick layer of salted
-> charcoal paste. The eggs may also be sold with the salted paste removed,
-> wrapped in plastic, and vacuum packed. From the salt curing process, the
-> salted duck eggs have a briny aroma, a gelatin-like egg white and a
-> firm-textured, round yolk that is bright orange-red in color.
+After a little poking around, I discovered that this was due to the gatsby-webfont loader.
 
-![Chinese Salty Egg](./salty_egg.jpg)
+After following recommendations in this thread, I decided to import the typefaces instead. I required both of the fonts in my Layout file.
+
+This fixed the problem.

@@ -77,7 +77,21 @@ module.exports = {
         // Add any options here
       },
     },
-
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Bai Jamjuree`,
+            variants: [`700`],
+          },
+          {
+            family: `Muli`,
+            variants: [`400`, `800`],
+          },
+        ],
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
