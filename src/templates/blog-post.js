@@ -22,7 +22,6 @@ const PageWrapper = styled.div`
     }
 
     section {
-      height: 100%;
       font-size: 1.6rem;
     }
   }

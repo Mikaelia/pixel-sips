@@ -77,6 +77,12 @@ module.exports = {
         // Add any options here
       },
     },
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
     `gatsby-plugin-preload-fonts`,
     // {
     //   resolve: `gatsby-plugin-google-fonts`,
