@@ -80,7 +80,7 @@ export default function Post({ node }) {
               }}
             />
           </section>
-          <div class="read-more">Read more</div>
+          <div className="read-more">Read more</div>
         </Link>
       </article>
     </StyledPost>

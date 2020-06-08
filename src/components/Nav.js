@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import styled, { keyframes } from "styled-components"
+import styled from "styled-components"
 
 const Navigation = styled.nav`
   padding: 3rem;

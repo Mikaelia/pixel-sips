@@ -10,8 +10,8 @@ const StyledGrid = styled.div`
 `
 
 export default function PostGrid({ posts }) {
-  const postList = posts.map(({ node }) => {
-    return <Post node={node}></Post>
+  const postList = posts.map(({ node }, i) => {
+    return <Post node={node} key={i}></Post>
   })
   return <StyledGrid>{postList}</StyledGrid>
 }
