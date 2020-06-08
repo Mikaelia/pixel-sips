@@ -18,7 +18,16 @@ const PageWrapper = styled.div`
     header {
       text-align: center;
       padding: 96px 32px 72px;
-      font-size: 2rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    .date {
+      display: block;
+      font-size: 1.2rem;
+      margin-top: 3rem;
     }
 
     section {
@@ -28,6 +37,29 @@ const PageWrapper = styled.div`
 
   nav {
     flex: 0;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  h2 {
+    margin-bottom: 3rem;
+    font-size: 2rem;
+  }
+
+  .page-links {
+    ul {
+      width: 100%;
+      margin: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+    a {
+      padding: 0;
+      color: ${props => props.theme.pink};
+      font-weight: 700;
+    }
   }
 `
 
@@ -52,39 +84,25 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             >
               {post.frontmatter.title}
             </h1>
-            <p
-              style={{
-                display: `block`,
-              }}
-            >
-              {post.frontmatter.date}
-            </p>
+            <p className="date">{post.frontmatter.date}</p>
           </header>
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
-          <hr />
         </article>
 
-        <nav>
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
+        <nav class="page-links">
+          <h2>More Readings</h2>
+          <ul>
             <li>
               {previous && (
                 <Link to={previous.fields.slug} rel="prev">
-                  ← {previous.frontmatter.title}
+                  {previous.frontmatter.title}
                 </Link>
               )}
             </li>
             <li>
               {next && (
                 <Link to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} →
+                  {next.frontmatter.title}
                 </Link>
               )}
             </li>
