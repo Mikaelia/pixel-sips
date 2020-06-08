@@ -2,4 +2,4 @@
 
 import "prismjs/themes/prism.css"
 // require("typeface-muli")
-require("typeface-bai-jamjuree")
+// require("typeface-bai-jamjuree")
