@@ -17,11 +17,12 @@ const PageWrapper = styled.div`
 
     header {
       text-align: center;
-      padding: 96px 32px 72px;
+      padding: 96px 32px 50px;
     }
 
     h1 {
       font-size: 3rem;
+      color: ${props => props.theme.pink};
     }
 
     .date {
@@ -47,6 +48,7 @@ const PageWrapper = styled.div`
   }
 
   .page-links {
+    margin-top: 10rem;
     ul {
       width: 100%;
       margin: 0;

@@ -1,5 +1,6 @@
 import React from "react"
 import styled, { keyframes } from "styled-components"
+import gsap from "gsap"
 
 const rotate = keyframes`
   0% {
@@ -165,6 +166,13 @@ const HeaderSection = styled.section`
     animation: ${spill} 2s infinite;
   }
 `
+
+// const Pixel = styled.div`
+//   height: 10rem;
+//   width: 10rem;
+//   background: ${props => props.theme.pink};
+//   opacity: 0.2;
+// `
 
 export default function MainHeader() {
   return (

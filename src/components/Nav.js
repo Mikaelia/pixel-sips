@@ -22,7 +22,7 @@ const Navigation = styled.nav`
 
   a {
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 500;
 
     letter-spacing: 0.2rem;
