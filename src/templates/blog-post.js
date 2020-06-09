@@ -93,6 +93,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
         <nav class="page-links">
           <h2>More Readings</h2>
+          {!previous && !next && <p>Nothing here yet!</p>}
           <ul>
             <li>
               {previous && (
