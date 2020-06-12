@@ -5,6 +5,7 @@ import styled from "styled-components"
 const Navigation = styled.nav`
   padding: 3rem;
   background: #12182f;
+
   ul {
     display: flex;
     list-style: none;
@@ -70,7 +71,7 @@ const Navigation = styled.nav`
   li:nth-child(4) a {
     background-image: linear-gradient(
       to top,
-      ${props => props.theme.green} 50%,
+      ${props => props.theme.red} 50%,
       ${props => props.theme.white} 50%
     );
   }
@@ -86,7 +87,11 @@ export default function Nav() {
           </Link>
         </li>
         <li className="nav-list-item">
-          <Link className="nav-link" activeClassName="nav-link--active" to="/">
+          <Link
+            className="nav-link"
+            activeClassName="nav-link--active"
+            to="/about"
+          >
             About
           </Link>
         </li>
@@ -94,7 +99,7 @@ export default function Nav() {
           <Link
             className="nav-link"
             activeClassName="nav-link--active"
-            to="/about"
+            to="/sippets"
           >
             Sippets
           </Link>
@@ -103,7 +108,7 @@ export default function Nav() {
           <Link
             className="nav-link"
             activeClassName="nav-link--active"
-            to="/contact"
+            to="/links"
           >
             Links
           </Link>

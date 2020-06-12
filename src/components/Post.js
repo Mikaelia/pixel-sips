@@ -47,7 +47,7 @@ const StyledPost = styled.div`
     }
 
     .read-more {
-      color: ${props => props.theme.darkBlue};
+      color: ${props => props.theme.pink};
     }
   }
 
