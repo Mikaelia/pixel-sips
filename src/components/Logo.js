@@ -115,7 +115,7 @@ const StyledLogo = styled.div`
     margin-left: 2rem;
     margin-bottom: 8px;
     height: 3rem;
-    width: 2.4rem;
+    width: 2.5rem;
     border-radius: 0.5rem;
     background: ${props => props.theme.pink};
     transform: rotate(-20deg);
@@ -141,7 +141,7 @@ const StyledLogo = styled.div`
       content: "";
       position: absolute;
       height: 3.5px;
-      width: 1.8rem;
+      width: 1.9rem;
       background: ${props => props.theme.yellow};
       top: 2px;
       left: 2.5px;
