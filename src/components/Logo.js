@@ -91,7 +91,7 @@ const StyledLogo = styled.div`
   }
 
   p {
-    font-family: "Bai Jamjuree", sans-serif;
+    font-family: "Muli", sans-serif;
     font-weight: 700;
   }
   .s {
@@ -165,7 +165,7 @@ export default function Logo() {
   return (
     <StyledLogo>
       <p>
-        pixel sip<span className="s">s</span>
+        PixelSip<span className="s">s</span>
       </p>
       <div className="cup-wrapper">
         <div className="splash"></div>
