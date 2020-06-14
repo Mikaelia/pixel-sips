@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     body {
         box-sizing: border-box;
         font-family: 'Muli', sans-serif;
-        background: #fff;
+         background: #e7edf4;
         font-size: 1.4rem;
         letter-spacing: .05rem;
         height: 100%;

@@ -12,7 +12,6 @@ const MainWrapper = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  background: #e7edf4;
 
   main {
     flex: 1 0 auto;
