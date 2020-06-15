@@ -5,7 +5,7 @@ import styled from "styled-components"
 const StyledPost = styled.div`
   padding: 3rem;
   border-radius: 0.8rem;
-  transition: 0.35s ease;
+  transition: 0.35s ease-out;
   background: #fff;
   border-width: 1px;
   border-style: solid;
@@ -34,7 +34,7 @@ const StyledPost = styled.div`
   }
 
   :hover {
-    box-shadow: rgba(73, 73, 80, 0.06) 0px 4.45528px 6.06029px,
+    box-shadow: rgba(73, 73, 80, 0.4) 2px 4.45528px 6.06029px,
       rgba(73, 73, 80, 0.05) 0px 10.7067px 14.5637px,
       rgba(73, 73, 80, 0.04) 0px 20.1597px 27.4222px,
       rgba(73, 73, 80, 0.03) 0px 35.9615px 48.9165px,

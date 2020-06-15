@@ -93,6 +93,7 @@ const StyledLogo = styled.div`
   p {
     font-family: "Muli", sans-serif;
     font-weight: 700;
+    letter-spacing: 0.3rem;
   }
   .s {
     color: transparent;

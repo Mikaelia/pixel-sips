@@ -4,7 +4,7 @@ import Logo from "./Logo.js"
 
 const HeaderSection = styled.section`
   background: ${props => props.theme.black};
-  height: 30rem;
+  height: 25rem;
   color: ${props => props.theme.white};
   font-size: 4rem;
   display: flex;

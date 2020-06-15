@@ -39,7 +39,7 @@ export const GlobalStyle = createGlobalStyle`
 export const theme = {
   spaceSmall: "1rem",
   spaceMed: "2rem",
-  black: "#12182F",
+  black: "rgba(18, 23, 46, 1.00)",
   pink: "#D90282",
   red: "#FF1249",
   darkBlue: "#3C9EE3",
