@@ -80,6 +80,7 @@ const StyledLogo = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
 
   .title {
     display: flex;
