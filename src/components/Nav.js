@@ -6,6 +6,7 @@ const Navigation = styled.nav`
   padding: 3rem;
   background: transparent;
   z-index: 1;
+  position: absolute;
 
   ul {
     display: flex;

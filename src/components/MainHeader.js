@@ -8,6 +8,7 @@ const HeaderSection = styled.section`
   background: ${props => props.theme.black};
   height: 10rem;
   padding-bottom: 8rem;
+
   width: 100vw;
   color: ${props => props.theme.white};
   font-size: 4rem;
@@ -17,16 +18,18 @@ const HeaderSection = styled.section`
   border-bottom-left-radius: 3rem;
   position: relative;
   @media ${device.mobileL} {
-    height: 25rem;
+    height: 35rem;
     padding-bottom: 0;
   }
 
   canvas {
     position: absolute;
-    top: -68rem;
+    width: 100%;
+    height: 100%;
+    /* top: -68rem; */
 
     @media ${device.mobileL} {
-      top: -58.2rem;
+      /* top: -58.2rem; */
     }
   }
 `
@@ -128,6 +131,8 @@ const MainHeader = () => {
 
   function init() {
     const canvas = canvasRef.current
+    canvas.width = canvas.offsetWidth
+    canvas.height = canvas.offsetHeight
     cubeArray = []
     for (let i = 0; i < 200; i++) {
       let width = Math.random() * 3 + 1
@@ -146,8 +151,8 @@ const MainHeader = () => {
     <HeaderSection>
       <canvas
         ref={canvasRef}
-        width={useWindowSize().width}
-        height={useWindowSize().height}
+        width={canvasRef.offsetWidth}
+        height={canvasRef.offsetHeight}
       ></canvas>
       <Logo />
     </HeaderSection>
