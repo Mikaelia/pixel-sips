@@ -6,10 +6,14 @@ import SEO from "../components/seo"
 import styled from "styled-components"
 import PostGrid from "../components/PostGrid.js"
 import MainHeader from "../components/MainHeader.js"
+import { device } from "../styled/globalStyles"
 
 const MainSection = styled.section`
   background: #e7edf3;
-  padding: 5rem 3rem;
+  padding: 3rem 1rem;
+  @media ${device.tablet} {
+    padding: 5rem 3rem;
+  }
 `
 type Data = {
   site: {

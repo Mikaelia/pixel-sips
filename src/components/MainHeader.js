@@ -2,10 +2,12 @@ import React from "react"
 import styled from "styled-components"
 import Logo from "./Logo.js"
 import useWindowSize from "../utils/useWindowSize.js"
+import { device } from "../styled/globalStyles.js"
 
 const HeaderSection = styled.section`
   background: ${props => props.theme.black};
-  height: 25rem;
+  height: 10rem;
+  padding-bottom: 8rem;
   width: 100vw;
   color: ${props => props.theme.white};
   font-size: 4rem;
@@ -14,10 +16,18 @@ const HeaderSection = styled.section`
   justify-content: center;
   border-bottom-left-radius: 3rem;
   position: relative;
+  @media ${device.mobileL} {
+    height: 25rem;
+    padding-bottom: 0;
+  }
 
   canvas {
     position: absolute;
-    top: -58.2rem;
+    top: -68rem;
+
+    @media ${device.mobileL} {
+      top: -58.2rem;
+    }
   }
 `
 const useAnimationFrame = callback => {
@@ -27,7 +37,7 @@ const useAnimationFrame = callback => {
   const previousTimeRef = React.useRef()
 
   const animate = time => {
-    if (previousTimeRef.current != undefined) {
+    if (previousTimeRef.current !== undefined) {
       const deltaTime = time - previousTimeRef.current
       callback(deltaTime)
     }
@@ -44,11 +54,6 @@ const useAnimationFrame = callback => {
 const MainHeader = () => {
   let cubeArray = []
   const canvasRef = React.useRef(null)
-  const mouse = {
-    y: undefined,
-    x: undefined,
-  }
-  const maxWidth = 40
   const colorArray = [
     "#D90282",
     "#FF1249",
@@ -60,11 +65,6 @@ const MainHeader = () => {
     "#6D59EF",
     "#5F40AC",
   ]
-
-  window.addEventListener("mousemove", e => {
-    mouse.x = e.x
-    mouse.y = e.y
-  })
 
   React.useEffect(() => {
     const canvas = canvasRef.current

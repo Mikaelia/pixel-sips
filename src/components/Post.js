@@ -49,8 +49,8 @@ const StyledPost = styled(animated.div)`
       rgba(73, 73, 80, 0.03) 0px 35.9615px 48.9165px,
       rgba(73, 73, 80, 0.02) 0px 67.2619px 91.493px,
       rgba(73, 73, 80, 0.01) 0px 161px 219px;
-
     border-radius: 8px;
+
     h3 {
       color: ${props => props.theme.pink};
     }
