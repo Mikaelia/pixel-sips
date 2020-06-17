@@ -4,7 +4,8 @@ import styled from "styled-components"
 
 const Navigation = styled.nav`
   padding: 3rem;
-  background: ${props => props.theme.black};
+  background: transparent;
+  z-index: 0;
 
   ul {
     display: flex;
