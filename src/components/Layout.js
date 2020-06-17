@@ -15,6 +15,7 @@ const MainWrapper = styled.div`
 
   main {
     flex: 1 0 auto;
+    z-index: 0;
   }
 
   footer {

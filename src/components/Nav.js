@@ -5,7 +5,7 @@ import styled from "styled-components"
 const Navigation = styled.nav`
   padding: 3rem;
   background: transparent;
-  z-index: 0;
+  z-index: 1;
 
   ul {
     display: flex;

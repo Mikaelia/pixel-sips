@@ -20,6 +20,26 @@ const HeaderSection = styled.section`
     top: -58.2rem;
   }
 `
+const useAnimationFrame = callback => {
+  // Use useRef for mutable variables that we want to persist
+  // without triggering a re-render on their change
+  const requestRef = React.useRef()
+  const previousTimeRef = React.useRef()
+
+  const animate = time => {
+    if (previousTimeRef.current != undefined) {
+      const deltaTime = time - previousTimeRef.current
+      callback(deltaTime)
+    }
+    previousTimeRef.current = time
+    requestRef.current = requestAnimationFrame(animate)
+  }
+
+  React.useEffect(() => {
+    requestRef.current = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(requestRef.current)
+  }, []) // Make sure the effect runs only once
+}
 
 const MainHeader = () => {
   let cubeArray = []
@@ -50,7 +70,21 @@ const MainHeader = () => {
     const canvas = canvasRef.current
     const ctx = canvas.getContext("2d")
     init()
-    animate()
+  })
+
+  useAnimationFrame(() => {
+    const canvas = canvasRef.current
+    const ctx = canvas.getContext("2d")
+    ctx.clearRect(
+      0,
+      0,
+      canvas.getBoundingClientRect().width,
+      canvas.getBoundingClientRect().height
+    )
+
+    for (let i = 0; i < cubeArray.length; i++) {
+      cubeArray[i].update()
+    }
   })
 
   class Cube {
@@ -88,21 +122,6 @@ const MainHeader = () => {
       this.xcoord += this.dx
       this.ycoord += this.dy
 
-      // interactivity
-      // console.log(mouse.y, this.ycoord)
-      // if (
-      //   mouse.x - this.xcoord < 50 &&
-      //   mouse.x - this.xcoord > -50 &&
-      //   mouse.y - this.ycoord < 50 &&
-      //   mouse.y - this.ycoord > -50
-      // ) {
-      //   if (this.width < maxWidth) {
-      //     this.width += 1
-      //   }
-      // } else if (this.width > this.minWidth) {
-      //   this.width -= 1
-      // }
-
       this.draw()
     }
   }
@@ -123,34 +142,12 @@ const MainHeader = () => {
     console.log(cubeArray)
   }
 
-  function animate() {
-    const canvas = canvasRef.current
-    const ctx = canvas.getContext("2d")
-
-    requestAnimationFrame(animate)
-    ctx.clearRect(
-      0,
-      0,
-      canvas.getBoundingClientRect().width,
-      canvas.getBoundingClientRect().height
-    )
-
-    for (let i = 0; i < cubeArray.length; i++) {
-      cubeArray[i].update()
-    }
-  }
-
   return (
     <HeaderSection>
       <canvas
         ref={canvasRef}
         width={useWindowSize().width}
         height={useWindowSize().height}
-        onClick={e => {
-          const canvas = canvasRef.current
-          const ctx = canvas.getContext("2d")
-          // implement draw on ctx here
-        }}
       ></canvas>
       <Logo />
     </HeaderSection>
