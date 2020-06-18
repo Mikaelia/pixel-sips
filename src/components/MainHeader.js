@@ -1,14 +1,14 @@
 import React from "react"
 import styled from "styled-components"
 import Logo from "./Logo.js"
-import useWindowSize from "../utils/useWindowSize.js"
+import useAnimationFrame from "../utils/useAnimationFrame.js"
 import { device } from "../styled/globalStyles.js"
 
 const HeaderSection = styled.section`
   background: ${props => props.theme.black};
   height: 10rem;
   padding-bottom: 8rem;
-
+  overflow: hidden;
   width: 100vw;
   color: ${props => props.theme.white};
   font-size: 4rem;
@@ -26,58 +26,8 @@ const HeaderSection = styled.section`
     position: absolute;
     width: 100%;
     height: 100%;
-    /* top: -68rem; */
-
-    @media ${device.mobileL} {
-      /* top: -58.2rem; */
-    }
   }
 `
-const useAnimationFrame = callback => {
-  // Use useRef for mutable variables that we want to persist
-  // without triggering a re-render on their change
-  const requestRef = React.useRef()
-  const previousTimeRef = React.useRef()
-
-  const animate = time => {
-    if (previousTimeRef.current !== undefined) {
-      const deltaTime = time - previousTimeRef.current
-      callback(deltaTime)
-    }
-    previousTimeRef.current = time
-    requestRef.current = requestAnimationFrame(animate)
-  }
-
-  React.useEffect(() => {
-    requestRef.current = requestAnimationFrame(animate)
-    return () => cancelAnimationFrame(requestRef.current)
-  }, []) // Make sure the effect runs only once
-}
-
-////////////////// HOOK/////////////////////
-
-/////////////////////////////////////////////
-// const debounce = func => {
-//   let timer
-//   return event => {
-//     if (timer) {
-//       clearTimeout(timer)
-//     }
-//     timer = setTimeout(func, 100, event)
-//   }
-// }
-
-// window.addEventListener(
-//   "resize",
-//   debounce(() => {
-//     const canvas = canvasRef.current
-//     canvas.width = canvas.offsetWidth
-//     canvas.height = canvas.offsetHeight
-
-//     init()
-//   })
-// )
-///////////////////////////////////////
 
 const MainHeader = () => {
   let cubeArray = []
@@ -96,23 +46,6 @@ const MainHeader = () => {
 
   React.useEffect(() => {
     init()
-  })
-
-  // React.useEffect(() => {
-  //   window.addEventListener("resize", () => init())
-  //   return () => window.removeEventListener("resize", () => init())
-  // }, [])
-
-  const { width, height } = useWindowSize()
-
-  useAnimationFrame(() => {
-    const canvas = canvasRef.current
-    const ctx = canvas.getContext("2d")
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-    for (let i = 0; i < cubeArray.length; i++) {
-      cubeArray[i].update()
-    }
   })
 
   class Cube {
@@ -154,6 +87,16 @@ const MainHeader = () => {
     }
   }
 
+  useAnimationFrame(() => {
+    const canvas = canvasRef.current
+    const ctx = canvas.getContext("2d")
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+    for (let i = 0; i < cubeArray.length; i++) {
+      cubeArray[i].update()
+    }
+  })
+
   function init() {
     const canvas = canvasRef.current
     canvas.width = canvas.offsetWidth
@@ -169,8 +112,6 @@ const MainHeader = () => {
       let dy = (Math.random() - 0.5) * 2
       cubeArray.push(new Cube(x, y, cubeWidth, dx, dy))
     }
-
-    console.log(cubeArray)
   }
 
   return (
