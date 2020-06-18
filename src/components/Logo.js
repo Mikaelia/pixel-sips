@@ -24,10 +24,10 @@ const rotate = keyframes`
 `
 const fill = keyframes`
 0% {
-      background-position: top;
+      background-position: bottom;
 }
 
-80% {
+10% {
       background-position: bottom;
 }
 
@@ -105,11 +105,11 @@ const StyledLogo = styled.div`
     -webkit-text-fill-color: transparent;
     background-image: linear-gradient(
       to top,
-      ${props => props.theme.yellow} 50%,
-      ${props => props.theme.white} 50%
+      ${props => props.theme.white} 50%,
+      ${props => props.theme.yellow} 50%
     );
     background-size: 100% 200%;
-    background-position: top;
+    background-position: bottom;
     animation: ${fill} 2s ease infinite;
   }
 
