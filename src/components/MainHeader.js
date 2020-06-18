@@ -54,6 +54,31 @@ const useAnimationFrame = callback => {
   }, []) // Make sure the effect runs only once
 }
 
+////////////////// HOOK/////////////////////
+
+/////////////////////////////////////////////
+// const debounce = func => {
+//   let timer
+//   return event => {
+//     if (timer) {
+//       clearTimeout(timer)
+//     }
+//     timer = setTimeout(func, 100, event)
+//   }
+// }
+
+// window.addEventListener(
+//   "resize",
+//   debounce(() => {
+//     const canvas = canvasRef.current
+//     canvas.width = canvas.offsetWidth
+//     canvas.height = canvas.offsetHeight
+
+//     init()
+//   })
+// )
+///////////////////////////////////////
+
 const MainHeader = () => {
   let cubeArray = []
   const canvasRef = React.useRef(null)
@@ -70,20 +95,20 @@ const MainHeader = () => {
   ]
 
   React.useEffect(() => {
-    const canvas = canvasRef.current
-    const ctx = canvas.getContext("2d")
     init()
   })
+
+  // React.useEffect(() => {
+  //   window.addEventListener("resize", () => init())
+  //   return () => window.removeEventListener("resize", () => init())
+  // }, [])
+
+  const { width, height } = useWindowSize()
 
   useAnimationFrame(() => {
     const canvas = canvasRef.current
     const ctx = canvas.getContext("2d")
-    ctx.clearRect(
-      0,
-      0,
-      canvas.getBoundingClientRect().width,
-      canvas.getBoundingClientRect().height
-    )
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
 
     for (let i = 0; i < cubeArray.length; i++) {
       cubeArray[i].update()
@@ -135,15 +160,16 @@ const MainHeader = () => {
     canvas.height = canvas.offsetHeight
     cubeArray = []
     for (let i = 0; i < 200; i++) {
-      let width = Math.random() * 3 + 1
+      let cubeWidth = Math.random() * 3 + 1
       let canvasWidth = canvas.getBoundingClientRect().width
       let canvasHeight = canvas.getBoundingClientRect().height
-      let x = Math.random() * (canvasWidth - width * 2) + width,
-        y = Math.random() * (canvasHeight - width * 2) + width
+      let x = Math.random() * (canvasWidth - cubeWidth * 2) + cubeWidth,
+        y = Math.random() * (canvasHeight - cubeWidth * 2) + cubeWidth
       let dx = (Math.random() - 0.5) * 2
       let dy = (Math.random() - 0.5) * 2
-      cubeArray.push(new Cube(x, y, width, dx, dy))
+      cubeArray.push(new Cube(x, y, cubeWidth, dx, dy))
     }
+
     console.log(cubeArray)
   }
 

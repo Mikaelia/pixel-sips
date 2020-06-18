@@ -81,6 +81,7 @@ const StyledLogo = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
+  margin-top: 2rem;
 
   .title {
     display: flex;
