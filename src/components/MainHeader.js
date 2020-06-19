@@ -48,6 +48,14 @@ const MainHeader = () => {
     init()
   })
 
+  React.useEffect(() => {
+    window.addEventListener("resize", changeWindowSize)
+
+    return () => {
+      window.removeEventListener("resize", changeWindowSize)
+    }
+  }, [])
+
   class Cube {
     constructor(xcoord, ycoord, width, dx, dy) {
       this.xcoord = xcoord
@@ -87,16 +95,6 @@ const MainHeader = () => {
     }
   }
 
-  useAnimationFrame(() => {
-    const canvas = canvasRef.current
-    const ctx = canvas.getContext("2d")
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-    for (let i = 0; i < cubeArray.length; i++) {
-      cubeArray[i].update()
-    }
-  })
-
   function init() {
     const canvas = canvasRef.current
     canvas.width = canvas.offsetWidth
@@ -112,6 +110,20 @@ const MainHeader = () => {
       let dy = (Math.random() - 0.5) * 2
       cubeArray.push(new Cube(x, y, cubeWidth, dx, dy))
     }
+  }
+
+  useAnimationFrame(() => {
+    const canvas = canvasRef.current
+    const ctx = canvas.getContext("2d")
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+    for (let i = 0; i < cubeArray.length; i++) {
+      cubeArray[i].update()
+    }
+  })
+
+  const changeWindowSize = () => {
+    init()
   }
 
   return (
