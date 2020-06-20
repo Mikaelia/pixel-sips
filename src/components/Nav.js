@@ -4,9 +4,11 @@ import styled from "styled-components"
 
 const Navigation = styled.nav`
   padding: 3rem;
-  background: transparent;
+  background: ${props =>
+    props.location === "/" ? "transparent" : props.theme.black};
   z-index: 1;
   position: absolute;
+  width: 100%;
 
   ul {
     display: flex;
@@ -78,10 +80,9 @@ const Navigation = styled.nav`
     );
   }
 `
-
-export default function Nav() {
+export default function Nav(props) {
   return (
-    <Navigation className="nav">
+    <Navigation location={props.location.pathname} className="nav">
       <ul className="nav-list">
         <li className="nav-list-item">
           <Link className="nav-link" activeClassName="nav-link--active" to="/">

@@ -1,5 +1,11 @@
 import React from "react"
 import styled from "styled-components"
+import {
+  GlobeIcon,
+  TwitterIcon,
+  RssIcon,
+  LinkedInIcon,
+} from "./assets/socialMediaIcons"
 
 const StyledFooter = styled.footer`
   background: ${props => props.theme.black};
@@ -30,7 +36,8 @@ const StyledFooter = styled.footer`
   .links {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: 4rem;
+    grid-column-gap: 3rem;
+    grid-row-gap: 2rem;
 
     a {
       text-decoration: none;
@@ -44,6 +51,12 @@ const StyledFooter = styled.footer`
     }
   }
 `
+const IconContainer = styled.div`
+  height: 2rem;
+  width: 2rem;
+  cursor: pointer;
+`
+
 export default function Footer() {
   return (
     <StyledFooter>
@@ -57,24 +70,32 @@ export default function Footer() {
               rel="noopener noreferrer"
               target="_blank"
             >
-              Website
+              <IconContainer>
+                <GlobeIcon />
+              </IconContainer>
             </a>
             <a
               href="https://www.linkedin.com/in/mikaela-gurney/"
               rel="noopener noreferrer"
               target="_blank"
             >
-              LinkedIn
+              <IconContainer>
+                <LinkedInIcon />
+              </IconContainer>
             </a>
-            <a href="https://stupefied-newton-ca65cd.netlify.app/rss.xml">
-              RSS
+            <a href="https://pixelsips.netlify.app/rss.xml">
+              <IconContainer>
+                <RssIcon />
+              </IconContainer>
             </a>
             <a
               href="https://twitter.com/MikaelaGurney"
               rel="noopener noreferrer"
               target="_blank"
             >
-              Twitter
+              <IconContainer>
+                <TwitterIcon />
+              </IconContainer>
             </a>
           </div>
         </div>

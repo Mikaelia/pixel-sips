@@ -1,7 +1,7 @@
 import React from "react"
 import Nav from "./Nav.js"
 import Footer from "./Footer.js"
-
+import { Location } from "@reach/router"
 import styled, { ThemeProvider } from "styled-components"
 import { GlobalStyle, theme } from "../styled/globalStyles"
 
@@ -23,13 +23,15 @@ const MainWrapper = styled.div`
   }
 `
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ children }) => {
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <MainWrapper>
-          <Nav></Nav>
+          <Location>
+            {({ location }) => <Nav location={location}></Nav>}
+          </Location>
           <main>{children}</main>
           <Footer />
         </MainWrapper>
