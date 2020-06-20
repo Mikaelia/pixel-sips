@@ -1,6 +1,5 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import styled from "styled-components"
@@ -9,15 +8,22 @@ const PageWrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  max-width: 675px;
+  max-width: 755px;
   margin: auto;
+  padding-top: 15rem;
 
   article {
     flex: 1;
-
+    background: white;
+    padding: 1rem 8rem;
+    border-radius: 0.5rem;
+    box-shadow: rgba(73, 73, 80, 0.1) 2px 4.45528px 6.06029px,
+      rgba(73, 73, 80, 0.05) 0px 10.7067px 14.5637px,
+      rgba(73, 73, 80, 0.04) 0px 20.1597px 27.4222px,
+      rgba(73, 73, 80, 0.03) 0px 35.9615px 48.9165px;
     header {
       text-align: center;
-      padding: 96px 32px 50px;
+      padding: 8rem 32px 50px;
     }
 
     h1 {
