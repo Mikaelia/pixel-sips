@@ -27,14 +27,16 @@ const Layout = ({ children }) => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <MainWrapper>
-          <Location>
-            {({ location }) => <Nav location={location}></Nav>}
-          </Location>
-          <main>{children}</main>
-          <Footer />
-        </MainWrapper>
+        <>
+          <GlobalStyle />
+          <MainWrapper>
+            <Location>
+              {({ location }) => <Nav location={location}></Nav>}
+            </Location>
+            <main>{children}</main>
+            <Footer />
+          </MainWrapper>
+        </>
       </ThemeProvider>
     </>
   )

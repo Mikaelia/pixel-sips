@@ -28,7 +28,7 @@ const PageWrapper = styled.div`
 
     @media ${device.tablet} {
       border-radius: 0.5rem;
-      padding: 5rem 8rem;
+      padding: 8rem;
       box-shadow: rgba(73, 73, 80, 0.1) 2px 4.45528px 6.06029px,
         rgba(73, 73, 80, 0.05) 0px 10.7067px 14.5637px,
         rgba(73, 73, 80, 0.04) 0px 20.1597px 27.4222px,
