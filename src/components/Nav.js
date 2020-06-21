@@ -15,6 +15,7 @@ const Navigation = styled.nav`
     display: flex;
     list-style: none;
     align-items: center;
+    margin-left: 0;
   }
 
   ul * + * {

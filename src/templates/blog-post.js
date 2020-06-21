@@ -51,6 +51,7 @@ const PageWrapper = styled.div`
   h2 {
     margin-bottom: 3rem;
     font-size: 2rem;
+    color: ${props => props.theme.pink};
   }
 
   .page-links {

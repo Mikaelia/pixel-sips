@@ -120,7 +120,9 @@ const StyledLogo = styled.div`
     height: 3rem;
     width: 2.5rem;
     border-radius: 0.5rem;
+    background-image: linear-gradient(${props => props.theme.pink} 50% white);
     background: ${props => props.theme.pink};
+    box-shadow: inset -7px 0 2px 2px #ba016f;
     transform: rotate(-20deg);
     animation: ${rotate} 2s linear infinite;
     z-index: 0;
@@ -137,7 +139,7 @@ const StyledLogo = styled.div`
       right: -8px;
       top: 0.5rem;
       border-radius: 0.3rem;
-      box-shadow: inset 0 0 0 2.5px ${props => props.theme.pink};
+      box-shadow: inset 0 0 0 2.5px #ba016f;
     }
 
     :after {
@@ -145,7 +147,11 @@ const StyledLogo = styled.div`
       position: absolute;
       height: 3.5px;
       width: 1.9rem;
-      background: ${props => props.theme.yellow};
+      background-image: linear-gradient(
+        220deg,
+        rgba(255, 154, 65, 1) 40%,
+        ${props => props.theme.yellow} 50%
+      );
       top: 2px;
       left: 2.5px;
       border-radius: 50%;
