@@ -1,15 +1,20 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-
+import { device } from "../styled/globalStyles"
 const Navigation = styled.nav`
-  padding: 3rem;
-  padding-bottom: 0;
-  background: ${props =>
-    props.location === "/" ? "transparent" : props.theme.black};
-  z-index: 1;
-  position: absolute;
-  width: 100%;
+  display: none;
+
+  @media ${device.mobileL} {
+    display: block;
+    padding: 3rem;
+    padding-bottom: 0;
+    background: ${props =>
+      props.location === "/" ? "transparent" : props.theme.black};
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+  }
 
   ul {
     display: flex;
@@ -63,21 +68,14 @@ const Navigation = styled.nav`
   li:nth-child(2) a {
     background-image: linear-gradient(
       to top,
-      ${props => props.theme.lightBlue} 50%,
+      ${props => props.theme.yellow} 50%,
       ${props => props.theme.white} 50%
     );
   }
   li:nth-child(3) a {
     background-image: linear-gradient(
       to top,
-      ${props => props.theme.yellow} 50%,
-      ${props => props.theme.white} 50%
-    );
-  }
-  li:nth-child(4) a {
-    background-image: linear-gradient(
-      to top,
-      ${props => props.theme.red} 50%,
+      ${props => props.theme.lightBlue} 50%,
       ${props => props.theme.white} 50%
     );
   }
@@ -107,15 +105,6 @@ export default function Nav(props) {
             to="/sippets"
           >
             Sippets
-          </Link>
-        </li>
-        <li className="nav-list-item">
-          <Link
-            className="nav-link"
-            activeClassName="nav-link--active"
-            to="/links"
-          >
-            Links
           </Link>
         </li>
       </ul>

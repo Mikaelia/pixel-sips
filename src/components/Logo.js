@@ -81,7 +81,6 @@ const StyledLogo = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  margin-top: 2rem;
 
   .title {
     display: flex;
@@ -93,6 +92,7 @@ const StyledLogo = styled.div`
   }
 
   p {
+    margin: 0;
     font-family: "Muli", sans-serif;
     font-weight: 700;
     letter-spacing: 0.3rem;
@@ -116,7 +116,6 @@ const StyledLogo = styled.div`
   .cup {
     position: relative;
     margin-left: 2rem;
-    margin-bottom: 8px;
     height: 3rem;
     width: 2.5rem;
     border-radius: 0.5rem;

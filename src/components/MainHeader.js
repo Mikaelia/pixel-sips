@@ -5,21 +5,20 @@ import useAnimationFrame from "../utils/useAnimationFrame.js"
 import { device } from "../styled/globalStyles.js"
 
 const HeaderSection = styled.section`
-  background: ${props => props.theme.black};
-  height: 10rem;
-  padding-bottom: 8rem;
-  overflow: hidden;
-  width: 100vw;
-  color: ${props => props.theme.white};
-  font-size: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom-left-radius: 3rem;
   position: relative;
+  height: 20rem;
+  width: 100vw;
+  overflow: hidden;
+  background: ${props => props.theme.black};
+  color: ${props => props.theme.white};
+  font-size: 4rem;
+  border-bottom-left-radius: 3rem;
+
   @media ${device.mobileL} {
     height: 35rem;
-    padding-bottom: 0;
   }
 
   canvas {

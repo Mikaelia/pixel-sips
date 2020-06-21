@@ -7,27 +7,40 @@ import {
   GlobeIcon,
   GithubIcon,
 } from "../components/assets/socialMediaIcons"
+import { device } from "../styled/globalStyles"
 
 const StyledAbout = styled.div`
   height: 100%;
-  display: flex;
-  flex-direction: column;
   max-width: 755px;
   margin: auto;
-  padding-top: 15rem;
+  display: flex;
+  align-items: center;
+
+  @media ${device.mobileL} {
+    padding-top: 15rem;
+  }
 
   article {
+    flex: 1;
     background: white;
-    padding: 8rem;
-    border-radius: 0.5rem;
-    box-shadow: rgba(73, 73, 80, 0.1) 2px 4.45528px 6.06029px,
-      rgba(73, 73, 80, 0.05) 0px 10.7067px 14.5637px,
-      rgba(73, 73, 80, 0.04) 0px 20.1597px 27.4222px,
-      rgba(73, 73, 80, 0.03) 0px 35.9615px 48.9165px;
+    padding: 10rem 4rem;
+    height: 80%;
+
+    @media ${device.mobileL} {
+      height: auto;
+      margin-bottom: 6rem;
+      height: auto;
+      border-radius: 0.5rem;
+      padding: 8rem;
+      box-shadow: rgba(73, 73, 80, 0.1) 2px 4.45528px 6.06029px,
+        rgba(73, 73, 80, 0.05) 0px 10.7067px 14.5637px,
+        rgba(73, 73, 80, 0.04) 0px 20.1597px 27.4222px,
+        rgba(73, 73, 80, 0.03) 0px 35.9615px 48.9165px;
+    }
 
     header {
       text-align: center;
-      padding-bottom: 2rem;
+      padding-bottom: 3rem;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -43,9 +56,8 @@ const StyledAbout = styled.div`
       display: flex;
       justify-content: space-between;
       width: 15rem;
-      /* position: absolute; */
-      bottom: 1rem;
     }
+
     .icons > * {
       height: 2rem;
       width: 2rem;
