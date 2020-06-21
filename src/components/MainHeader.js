@@ -53,6 +53,7 @@ const MainHeader = () => {
     return () => {
       window.removeEventListener("resize", changeWindowSize)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   class Cube {

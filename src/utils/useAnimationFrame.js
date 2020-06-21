@@ -18,6 +18,7 @@ const useAnimationFrame = callback => {
   React.useEffect(() => {
     requestRef.current = requestAnimationFrame(animate)
     return () => cancelAnimationFrame(requestRef.current)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []) // Make sure the effect runs only once
 }
 
