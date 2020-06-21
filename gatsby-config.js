@@ -84,8 +84,6 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
-    `gatsby-plugin-preload-fonts`,
-    // In your gatsby-config.js
     {
       resolve: `gatsby-plugin-feed`,
       options: {

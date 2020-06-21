@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
-import SEO from "../components/seo"
+// import SEO from "../components/seo"
 import styled from "styled-components"
 import { device } from "../styled/globalStyles"
 import { MDXRenderer } from "gatsby-plugin-mdx"
@@ -107,10 +107,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO
+      {/* <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
-      />
+      /> */}
       <PageWrapper>
         <article>
           <header>
@@ -128,7 +128,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </section>
         </article>
 
-        <nav class="page-links">
+        <nav className="page-links">
           <h2>More Readings</h2>
           {!previous && !next && <p>Nothing here yet!</p>}
           <ul>

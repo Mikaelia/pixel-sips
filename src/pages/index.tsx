@@ -2,7 +2,7 @@
 import React from "react"
 import { PageProps, graphql } from "gatsby"
 import Layout from "../components/Layout.js"
-import SEO from "../components/seo"
+// import SEO from "../components/seo"
 import styled from "styled-components"
 import PostGrid from "../components/PostGrid.js"
 import MainHeader from "../components/MainHeader.js"
@@ -44,7 +44,7 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
+      {/* <SEO title="All posts" /> */}
       <MainHeader />
 
       <MainSection>
