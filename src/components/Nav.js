@@ -12,7 +12,7 @@ const Navigation = styled.nav`
     background: ${props =>
       props.location === "/" ? "transparent" : props.theme.black};
     z-index: 1;
-    position: absolute;
+    position: ${props => (props.location === "/" ? "absolute" : "relative")};
     width: 100%;
   }
 

@@ -8,17 +8,22 @@ import {
   GithubIcon,
 } from "../components/assets/socialMediaIcons"
 import { device } from "../styled/globalStyles"
+import { useSpring, animated } from "react-spring"
 
-const StyledAbout = styled.div`
+const calc = (x, y) => [
+  -(y - window.innerHeight / 2) / 40,
+  (x - window.innerWidth / 2) / 40,
+  1.05,
+]
+const trans = (x, y, s) =>
+  `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
+
+const StyledAbout = styled(animated.div)`
   height: 100%;
   max-width: 755px;
   margin: auto;
   display: flex;
   align-items: center;
-
-  @media ${device.mobileL} {
-    padding-top: 15rem;
-  }
 
   article {
     flex: 1;
@@ -28,7 +33,6 @@ const StyledAbout = styled.div`
 
     @media ${device.mobileL} {
       height: auto;
-      margin-bottom: 6rem;
       height: auto;
       border-radius: 0.5rem;
       padding: 8rem;
@@ -65,10 +69,18 @@ const StyledAbout = styled.div`
   }
 `
 
-export default function About() {
+export default function About({ node }) {
+  const [props, set] = useSpring(() => ({
+    xys: [0, 0, 1],
+    config: { mass: 5, tension: 350, friction: 40 },
+  }))
   return (
     <Layout>
-      <StyledAbout>
+      <StyledAbout
+        style={{ transform: props.xys.interpolate(trans) }}
+        onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+        onMouseLeave={() => set({ xys: [0, 0, 1] })}
+      >
         <article>
           <header>
             <h1>Hello</h1>
