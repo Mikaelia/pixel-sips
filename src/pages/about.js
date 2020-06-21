@@ -24,7 +24,7 @@ const StyledAbout = styled.div`
     flex: 1;
     background: white;
     padding: 10rem 4rem;
-    height: 80%;
+    height: 95%;
 
     @media ${device.mobileL} {
       height: auto;

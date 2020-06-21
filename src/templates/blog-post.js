@@ -13,6 +13,10 @@ const PageWrapper = styled.div`
   margin: auto;
 
   @media ${device.mobileL} {
+    padding-top: 9rem;
+  }
+
+  @media ${device.tablet} {
     padding-top: 15rem;
   }
 
@@ -21,9 +25,9 @@ const PageWrapper = styled.div`
     background: white;
     padding: 5rem 0;
 
-    @media ${device.mobileL} {
+    @media ${device.tablet} {
       border-radius: 0.5rem;
-      padding: 1rem 8rem;
+      padding: 5rem 8rem;
       box-shadow: rgba(73, 73, 80, 0.1) 2px 4.45528px 6.06029px,
         rgba(73, 73, 80, 0.05) 0px 10.7067px 14.5637px,
         rgba(73, 73, 80, 0.04) 0px 20.1597px 27.4222px,
@@ -33,8 +37,8 @@ const PageWrapper = styled.div`
     header {
       text-align: center;
       padding: 0 3.2rem 2rem;
-      @media ${device.mobileL} {
-        padding: 8rem 3.2rem 5rem;
+      @media ${device.tablet} {
+        padding: 0 3.2rem 5rem;
       }
 
       h1 {
@@ -67,7 +71,8 @@ const PageWrapper = styled.div`
     text-align: center;
 
     @media ${device.mobileL} {
-      margin-top: 10rem;
+      margin-top: 8rem;
+      background: transparent;
       text-align: left;
     }
 
