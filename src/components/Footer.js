@@ -71,7 +71,7 @@ export default function Footer() {
               target="_blank"
             >
               <IconContainer>
-                <GlobeIcon />
+                <GlobeIcon fill="rgba(231, 237, 245, 1.00)" />
               </IconContainer>
             </a>
             <a
@@ -80,12 +80,12 @@ export default function Footer() {
               target="_blank"
             >
               <IconContainer>
-                <LinkedInIcon />
+                <LinkedInIcon fill="rgba(231, 237, 245, 1.00)" />
               </IconContainer>
             </a>
             <a href="https://pixelsips.netlify.app/rss.xml">
               <IconContainer>
-                <RssIcon />
+                <RssIcon fill="rgba(231, 237, 245, 1.00)" />
               </IconContainer>
             </a>
             <a
@@ -94,7 +94,7 @@ export default function Footer() {
               target="_blank"
             >
               <IconContainer>
-                <TwitterIcon />
+                <TwitterIcon fill="rgba(231, 237, 245, 1.00)" />
               </IconContainer>
             </a>
           </div>

@@ -12,7 +12,7 @@ const MainSection = styled.section`
   background: #e7edf3;
   padding: 3rem 1rem;
   @media ${device.tablet} {
-    padding: 5rem 3rem;
+    padding: 3rem 3rem;
   }
 `
 type Data = {
