@@ -87,7 +87,7 @@ export default function About() {
               >
                 <LinkedInIcon fill="rgba(18, 23, 46, 1.00)" />
               </a>
-              <a href="https://pixelsips.netlify.app/rss.xml">
+              <a href="https://github.com/Mikaelia">
                 <GithubIcon fill="rgba(18, 23, 46, 1.00)" />
               </a>
               <a
