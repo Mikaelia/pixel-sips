@@ -4,6 +4,7 @@ import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import styled from "styled-components"
 import { device } from "../styled/globalStyles"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 const PageWrapper = styled.div`
   display: flex;
@@ -100,7 +101,7 @@ const PageWrapper = styled.div`
 `
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
-  const post = data.markdownRemark
+  const post = data.mdx
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
 
@@ -122,10 +123,9 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             </h1>
             <p className="date">{post.frontmatter.date}</p>
           </header>
-          <section
-            className="post-content"
-            dangerouslySetInnerHTML={{ __html: post.html }}
-          />
+          <section className="post-content">
+            <MDXRenderer>{post.body}</MDXRenderer>
+          </section>
         </article>
 
         <nav class="page-links">
@@ -162,10 +162,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
-      html
+      body
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
