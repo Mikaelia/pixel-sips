@@ -18,7 +18,7 @@ const PageWrapper = styled.div`
   }
 
   @media ${device.tablet} {
-    padding-top: 15rem;
+    padding-top: 12rem;
   }
 
   article {
