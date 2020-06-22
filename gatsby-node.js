@@ -12,14 +12,12 @@ exports.createPages = async ({ graphql, actions }) => {
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
         ) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-              }
+          nodes {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
             }
           }
         }
@@ -32,17 +30,17 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Create blog posts pages.
-  const posts = result.data.allMdx.edges
+  const posts = result.data.allMdx.nodes
 
   posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node
-    const next = index === 0 ? null : posts[index - 1].node
+    const previous = index === posts.length - 1 ? null : posts[index + 1]
+    const next = index === 0 ? null : posts[index - 1]
 
     createPage({
-      path: post.node.fields.slug,
+      path: post.fields.slug,
       component: blogPost,
       context: {
-        slug: post.node.fields.slug,
+        slug: post.fields.slug,
         previous,
         next,
       },
@@ -61,12 +59,4 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
   }
-}
-
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      modules: [path.resolve(__dirname, "src"), "node_modules"],
-    },
-  })
 }

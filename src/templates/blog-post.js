@@ -100,17 +100,12 @@ const PageWrapper = styled.div`
   }
 `
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
-  const post = data.mdx
-  const siteTitle = data.site.siteMetadata.title
+export default ({ data, pageContext, location }) => {
+  const { frontmatter, body } = data.mdx
   const { previous, next } = pageContext
 
   return (
-    <Layout location={location} title={siteTitle}>
-      {/* <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      /> */}
+    <Layout location={location}>
       <PageWrapper>
         <article>
           <header>
@@ -119,12 +114,12 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                 marginBottom: 0,
               }}
             >
-              {post.frontmatter.title}
+              {frontmatter.title}
             </h1>
-            <p className="date">{post.frontmatter.date}</p>
+            <p className="date">{frontmatter.date}</p>
           </header>
           <section className="post-content">
-            <MDXRenderer>{post.body}</MDXRenderer>
+            <MDXRenderer>{body}</MDXRenderer>
           </section>
         </article>
 
@@ -153,23 +148,13 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   )
 }
 
-export default BlogPostTemplate
-
-export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
+export const query = graphql`
+  query PostsBySlug($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt(pruneLength: 160)
       body
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
-        description
+        date(formatString: "YYYY MMMM Do")
       }
     }
   }

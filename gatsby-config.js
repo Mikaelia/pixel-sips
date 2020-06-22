@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Pixelsip`,
+    title: `Pixelsips`,
     author: {
       name: `Mikaela Gurney`,
       summary: `who lives and works in San Francisco building useful things.`,
@@ -15,7 +15,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/pages/blog`,
+        path: `${__dirname}/src/blog`,
         name: `blog`,
       },
     },
@@ -60,15 +60,12 @@ module.exports = {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
-    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `PixelSips`,
         short_name: `PixelSips`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `content/assets/cup.png`,
       },
