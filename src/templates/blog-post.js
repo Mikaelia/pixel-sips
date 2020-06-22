@@ -17,10 +17,6 @@ const PageWrapper = styled.div`
     padding-top: 9rem;
   }
 
-  @media ${device.tablet} {
-    padding-top: 12rem;
-  }
-
   article {
     flex: 1;
     background: white;
@@ -154,7 +150,7 @@ export const query = graphql`
       body
       frontmatter {
         title
-        date(formatString: "YYYY MMMM Do")
+        date(formatString: "MMMM DD, YYYY")
       }
     }
   }
