@@ -23,6 +23,8 @@ export const GlobalStyle = createGlobalStyle`
         height: 100%;
         width:  100%;
         overflow-x:hidden;
+        overflow-y: scroll;
+-webkit-overflow-scrolling: touch;
 
         > *{
             height: 100%;
