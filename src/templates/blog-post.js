@@ -10,10 +10,11 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  max-width: 825px;
+  width: 100%;
   margin: auto;
 
   @media ${device.tablet} {
+    max-width: 825px;
     padding-top: 9rem;
   }
 
