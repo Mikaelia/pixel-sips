@@ -107,56 +107,27 @@ export default function Post({ node }) {
 
   return (
     <>
-      <Media
-        query="(min-width: 1024px)"
-        render={() => (
-          <StyledPost
-            style={{ transform: props.xys.interpolate(trans) }}
-            onMouseMove={({ clientX: x, clientY: y }) =>
-              set({ xys: calc(x, y) })
-            }
-            onMouseLeave={() => set({ xys: [0, 0, 1] })}
-          >
-            <StyledArticle key={node.fields.slug}>
-              <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                <header>
-                  <h3>{title}</h3>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: node.frontmatter.description || node.excerpt,
-                    }}
-                  />
-                </section>
-                <div className="read-more">Read more</div>
-              </Link>
-            </StyledArticle>
-          </StyledPost>
-        )}
-      />
-      <Media
-        query="(max-width: 1023px)"
-        render={() => (
-          <StyledPostMobile>
-            <StyledArticle key={node.fields.slug}>
-              <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                <header>
-                  <h3>{title}</h3>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: node.frontmatter.description || node.excerpt,
-                    }}
-                  />
-                </section>
-                <div className="read-more">Read more</div>
-              </Link>
-            </StyledArticle>
-          </StyledPostMobile>
-        )}
-      />
+      <StyledPost
+        style={{ transform: props.xys.interpolate(trans) }}
+        onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+        onMouseLeave={() => set({ xys: [0, 0, 1] })}
+      >
+        <StyledArticle key={node.fields.slug}>
+          <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+            <header>
+              <h3>{title}</h3>
+            </header>
+            <section>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: node.frontmatter.description || node.excerpt,
+                }}
+              />
+            </section>
+            <div className="read-more">Read more</div>
+          </Link>
+        </StyledArticle>
+      </StyledPost>
     </>
   )
 }
