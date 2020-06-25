@@ -10,11 +10,15 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  max-width: 755px;
+  max-width: 825px;
   margin: auto;
 
-  @media ${device.mobileL} {
+  @media ${device.tablet} {
     padding-top: 9rem;
+  }
+
+  @media ${device.laptop} {
+    max-width: 900px;
   }
 
   article {
@@ -30,18 +34,33 @@ const PageWrapper = styled.div`
         rgba(73, 73, 80, 0.04) 0px 20.1597px 27.4222px,
         rgba(73, 73, 80, 0.03) 0px 35.9615px 48.9165px;
     }
+    @media ${device.laptop} {
+      padding: 8rem 9.5rem;
+    }
 
     header {
       text-align: center;
-      padding: 0 3.2rem 2rem;
+      padding-bottom: 2rem;
       @media ${device.tablet} {
-        padding: 0 3.2rem 5rem;
+        padding-bottom: 5rem;
+      }
+      @media ${device.laptop} {
+        margin-left: -3rem;
+        margin-right: -3rem;
       }
 
       h1 {
         font-size: 3rem;
         line-height: 4rem;
         color: ${props => props.theme.pink};
+        @media ${device.mobileL} {
+          font-size: 4rem;
+          line-height: 5rem;
+        }
+        @media ${device.laptop} {
+          font-size: 5.5rem;
+          line-height: 7rem;
+        }
       }
 
       .date {
@@ -57,6 +76,9 @@ const PageWrapper = styled.div`
     .post-content {
       font-size: 1.6rem;
       padding: 0 1.5rem;
+      @media ${device.mobileL} {
+        font-size: 1.8rem;
+      }
     }
   }
 

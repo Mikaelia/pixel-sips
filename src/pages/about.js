@@ -6,6 +6,7 @@ import {
   LinkedInIcon,
   GlobeIcon,
   GithubIcon,
+  CodepenIcon,
 } from "../components/assets/socialMediaIcons"
 import { device } from "../styled/globalStyles"
 import { useSpring, animated } from "react-spring"
@@ -99,7 +100,11 @@ export default function About({ node }) {
               >
                 <LinkedInIcon fill="rgba(18, 23, 46, 1.00)" />
               </a>
-              <a href="https://github.com/Mikaelia">
+              <a
+                href="https://github.com/Mikaelia"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 <GithubIcon fill="rgba(18, 23, 46, 1.00)" />
               </a>
               <a
@@ -108,6 +113,13 @@ export default function About({ node }) {
                 target="_blank"
               >
                 <TwitterIcon fill="rgba(18, 23, 46, 1.00)" />
+              </a>
+              <a
+                href="https://codepen.io/Mikiaela"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <CodepenIcon fill="rgba(18, 23, 46, 1.00)" />
               </a>
             </div>
           </header>
