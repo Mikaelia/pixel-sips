@@ -16,4 +16,4 @@ Currently in development and available here: http://pixelsips.netlify.app/
 - [ ] Create post topic tags
 - [ ] Create filterable post page
 - [ ] Develop Sippets page
-
+- [ ] Test for browser compatibility
