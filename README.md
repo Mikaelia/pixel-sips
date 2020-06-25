@@ -7,7 +7,9 @@ Currently in development and available here: http://pixelsips.netlify.app/
 
 #### Roadmap:
 
+- [ ] Fix sticky Nav
 - [X] Enable Gists
+- [ ] Remove animations on mobile to prevent scrolling / selection glitches
 - [ ] Clean up HTML Canvas animation
 - [ ] Extract react-spring animations to separate modules
 - [ ] Enable Comments or likes
