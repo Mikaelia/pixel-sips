@@ -108,7 +108,7 @@ export default function Post({ node }) {
   return (
     <>
       <Media
-        query="(min-width: 1024)"
+        query="(min-width: 1024px)"
         render={() => (
           <StyledPost
             style={{ transform: props.xys.interpolate(trans) }}
@@ -136,7 +136,7 @@ export default function Post({ node }) {
         )}
       />
       <Media
-        query="(max-width: 1023)"
+        query="(max-width: 1023px)"
         render={() => (
           <StyledPostMobile>
             <StyledArticle key={node.fields.slug}>
