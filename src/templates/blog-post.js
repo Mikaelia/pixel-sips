@@ -102,6 +102,14 @@ const PageWrapper = styled.div`
         color: ${props => props.theme.black};
         background: rgba(231, 237, 244, 1);
       }
+
+      pre[class*="language-"] {
+        font-size: 1.2rem;
+        line-height: 1rem;
+      }
+      pre {
+        background: rgba(231, 237, 244, 1);
+      }
     }
   }
 

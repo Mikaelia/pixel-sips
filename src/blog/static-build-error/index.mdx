@@ -7,14 +7,20 @@ published: true
 
 I recently transitioned from Markdown files to MDX using [this](https://www.gatsbyjs.org/blog/2019-11-21-how-to-convert-an-existing-gatsby-blog-to-use-mdx/) guide.
 
-While everything seemed to be running smoothly in dev, on build I recieved the error:
+While everything seemed to be running smoothly in dev, on build I received the error:
 
-```
+
+```txt
 Building static HTML failed for path "/blog/fixing-FOUC/"
 
 See our docs page for more info on this error: https://gatsby.dev/debug-html
 
 WebpackError: TypeError: Cannot read property 'mdx' of undefined
 ```
+<br/>
 
-If you're experiencing this error, you may very well have done what I did, and included your blog folder inside of your `pages` directory. In this case, the GQL query for your individual post will fail because the post page is created twice on build - once manually by you, and then again automatically by the mdx plugin. The mdx plugin will see the .mdx file in the pages folder, and create a page without a query slug. It is this that causes the the query to fail and the error to dispay.
+If you're experiencing this error, you may very well have done what I did, and included your blog folder inside of your `pages` directory.
+
+ In this case, the GQL query for your individual post will fail because the post page is created twice on build -- once manually by you, and then again automatically by the mdx plugin. 
+ 
+ The mdx plugin will see the .mdx file in the pages folder, and create a page without a query slug. It is this that causes the query to fail and the error to display.
