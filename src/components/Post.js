@@ -119,13 +119,7 @@ export default function Post({ node }) {
         {matches => (
           <>
             {matches.small && (
-              <StyledPostMobile
-                style={{ transform: props.xys.interpolate(trans) }}
-                onMouseMove={({ clientX: x, clientY: y }) =>
-                  set({ xys: calc(x, y) })
-                }
-                onMouseLeave={() => set({ xys: [0, 0, 1] })}
-              >
+              <StyledPostMobile>
                 <StyledArticle key={node.fields.slug}>
                   <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
                     <header>

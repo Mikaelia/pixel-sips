@@ -7,6 +7,8 @@ const StyledGrid = styled.div`
   display: grid;
   width: 100%;
   grid-template-columns: 1fr;
+  grid-gap: 1rem;
+
   @media ${device.mobileL} {
     grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
     grid-gap: 3.2rem;
