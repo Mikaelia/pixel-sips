@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { useSpring, animated } from "react-spring"
-import useWindowSize from "../utils/useWindowSize"
+import Media from "react-media"
 
 const calc = (x, y) => [
   -(y - window.innerHeight / 2) / 40,
@@ -104,49 +104,59 @@ export default function Post({ node }) {
     config: { mass: 5, tension: 350, friction: 40 },
   }))
   const title = node.frontmatter.title || node.fields.slug
-  let windowSize = useWindowSize()
 
   return (
-    (windowSize.width > 1024 && (
-      <StyledPost
-        style={{ transform: props.xys.interpolate(trans) }}
-        onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
-        onMouseLeave={() => set({ xys: [0, 0, 1] })}
-      >
-        <StyledArticle key={node.fields.slug}>
-          <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-            <header>
-              <h3>{title}</h3>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
-            <div className="read-more">Read more</div>
-          </Link>
-        </StyledArticle>
-      </StyledPost>
-    )) || (
-      <StyledPostMobile>
-        <StyledArticle key={node.fields.slug}>
-          <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-            <header>
-              <h3>{title}</h3>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
-            <div className="read-more">Read more</div>
-          </Link>
-        </StyledArticle>
-      </StyledPostMobile>
-    )
+    <>
+      <Media
+        query="(min-width: 1024)"
+        render={() => (
+          <StyledPost
+            style={{ transform: props.xys.interpolate(trans) }}
+            onMouseMove={({ clientX: x, clientY: y }) =>
+              set({ xys: calc(x, y) })
+            }
+            onMouseLeave={() => set({ xys: [0, 0, 1] })}
+          >
+            <StyledArticle key={node.fields.slug}>
+              <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                <header>
+                  <h3>{title}</h3>
+                </header>
+                <section>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: node.frontmatter.description || node.excerpt,
+                    }}
+                  />
+                </section>
+                <div className="read-more">Read more</div>
+              </Link>
+            </StyledArticle>
+          </StyledPost>
+        )}
+      />
+      <Media
+        query="(max-width: 1023)"
+        render={() => (
+          <StyledPostMobile>
+            <StyledArticle key={node.fields.slug}>
+              <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                <header>
+                  <h3>{title}</h3>
+                </header>
+                <section>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: node.frontmatter.description || node.excerpt,
+                    }}
+                  />
+                </section>
+                <div className="read-more">Read more</div>
+              </Link>
+            </StyledArticle>
+          </StyledPostMobile>
+        )}
+      />
+    </>
   )
 }
