@@ -21,6 +21,7 @@ const StyledPost = styled(animated.div)`
   border-style: solid;
   border-color: rgb(228, 228, 231);
   border-image: initial;
+  height: 100%;
 
   :hover {
     box-shadow: rgba(73, 73, 80, 0.4) 2px 4.45528px 6.06029px,
@@ -42,6 +43,7 @@ const StyledPostMobile = styled.div`
   border-style: solid;
   border-color: rgb(228, 228, 231);
   border-image: initial;
+  height: 100%;
 
   :hover {
     box-shadow: rgba(73, 73, 80, 0.4) 2px 4.45528px 6.06029px,
@@ -54,8 +56,10 @@ const StyledPostMobile = styled.div`
   }
 `
 const StyledArticle = styled.article`
-  article {
-    height: 100%;
+  height: 100%;
+
+  section {
+    flex-grow: 1;
   }
 
   a {
@@ -90,7 +94,6 @@ const StyledArticle = styled.article`
   }
 
   .read-more {
-    flex-grow: 1;
     margin-top: ${prop => prop.theme.spaceMed};
     font-weight: 800;
     display: flex;
@@ -106,28 +109,68 @@ export default function Post({ node }) {
   const title = node.frontmatter.title || node.fields.slug
 
   return (
-    <>
-      <StyledPost
-        style={{ transform: props.xys.interpolate(trans) }}
-        onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
-        onMouseLeave={() => set({ xys: [0, 0, 1] })}
+    <div>
+      <Media
+        queries={{
+          small: "(max-width: 1023px)",
+          large: "(min-width: 1024px)",
+        }}
       >
-        <StyledArticle key={node.fields.slug}>
-          <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-            <header>
-              <h3>{title}</h3>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
-            <div className="read-more">Read more</div>
-          </Link>
-        </StyledArticle>
-      </StyledPost>
-    </>
+        {matches => (
+          <>
+            {matches.small && (
+              <StyledPostMobile
+                style={{ transform: props.xys.interpolate(trans) }}
+                onMouseMove={({ clientX: x, clientY: y }) =>
+                  set({ xys: calc(x, y) })
+                }
+                onMouseLeave={() => set({ xys: [0, 0, 1] })}
+              >
+                <StyledArticle key={node.fields.slug}>
+                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                    <header>
+                      <h3>{title}</h3>
+                    </header>
+                    <section>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: node.frontmatter.description || node.excerpt,
+                        }}
+                      />
+                    </section>
+                    <div className="read-more">Read more</div>
+                  </Link>
+                </StyledArticle>
+              </StyledPostMobile>
+            )}
+            {matches.large && (
+              <StyledPost
+                style={{ transform: props.xys.interpolate(trans) }}
+                onMouseMove={({ clientX: x, clientY: y }) =>
+                  set({ xys: calc(x, y) })
+                }
+                onMouseLeave={() => set({ xys: [0, 0, 1] })}
+              >
+                <StyledArticle key={node.fields.slug}>
+                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                    <header>
+                      <h3>{title}</h3>
+                    </header>
+                    <section>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: node.frontmatter.description || node.excerpt,
+                        }}
+                      />
+                    </section>
+                    <div className="read-more">Read more</div>
+                  </Link>
+                </StyledArticle>
+              </StyledPost>
+            )}
+          </>
+        )}
+      </Media>
+    </div>
   )
 }
