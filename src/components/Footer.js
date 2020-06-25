@@ -5,6 +5,8 @@ import {
   TwitterIcon,
   RssIcon,
   LinkedInIcon,
+  GithubIcon,
+  CodepenIcon,
 } from "./assets/socialMediaIcons"
 
 const StyledFooter = styled.footer`
@@ -35,7 +37,7 @@ const StyledFooter = styled.footer`
 
   .links {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 3rem;
     grid-row-gap: 2rem;
 
@@ -96,6 +98,20 @@ export default function Footer() {
               <IconContainer>
                 <TwitterIcon fill="rgba(231, 237, 245, 1.00)" />
               </IconContainer>
+            </a>
+            <a
+              href="https://codepen.io/Mikiaela"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <CodepenIcon fill="rgba(231, 237, 245, 1.00)" />
+            </a>
+            <a
+              href="https://github.com/Mikaelia"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <GithubIcon fill="rgba(231, 237, 245, 1.00)" />
             </a>
           </div>
         </div>

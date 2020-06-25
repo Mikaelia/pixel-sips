@@ -107,7 +107,7 @@ export default function Post({ node }) {
   let windowSize = useWindowSize()
 
   return (
-    (windowSize.width > 768 && (
+    (windowSize.width > 1024 && (
       <StyledPost
         style={{ transform: props.xys.interpolate(trans) }}
         onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}

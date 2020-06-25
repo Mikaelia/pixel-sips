@@ -70,7 +70,16 @@ const PageWrapper = styled.div`
         @media ${device.mobileL} {
           margin-top: 3rem;
         }
+
+        blockquote {
+          font-style: italic;
+          color: ${props => props.theme.pink};
+        }
       }
+    }
+
+    blockquote {
+      font-style: italic;
     }
 
     .post-content {
@@ -78,6 +87,20 @@ const PageWrapper = styled.div`
       padding: 0 1.5rem;
       @media ${device.mobileL} {
         font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 3rem;
+      }
+
+      a {
+        color: ${props => props.theme.pink};
+      }
+
+      code {
+        font-weight: bold;
+        color: ${props => props.theme.black};
+        background: rgba(231, 237, 244, 1);
       }
     }
   }

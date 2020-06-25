@@ -1,0 +1,47 @@
+---
+title: Gists, Gatsby, and MDX
+date: "2020-06-07"
+description: "How to include Github Gists in your MDX files"
+published: true
+---
+
+I really enjoy working with Github gists. They have a great look without having to tinker around with themes (such as with Prism), are highly readable, and provide out-of-the-box syntax highlighting and line numbering for numerous languages and formats.
+
+I also like having all of my code snippets stored in one central place. Whenever I need to reference or update them again, it's easy.
+
+For these reasons, I wanted to use gists for writing blog posts. As things are, I ran into some roadblocks along the way. 
+
+My first plan of attack was the
+[gatsby-remark-embed-gist](https://www.gatsbyjs.org/packages/gatsby-remark-embed-gist/) plugin. I spent a good chunk of time trying to get this to work, but was only ever able to render
+the literal code block:
+
+ `gist:Mikaelia/1234567#example-file.js`. 
+
+By this time, I was investigating transitioning to MDX files.
+
+ As written in the docs: 
+> MDX is an authorable format that lets you seamlessly write JSX in your Markdown documents.
+> You can import components, such as interactive charts or alerts, and embed them within your content.
+> This makes writing long-form content with components a blast 🚀.
+
+Having the freedom to write JSX into my markdown sounded great, and it would open the door for writing more visual and potentially interactive content in the future. 
+
+In addition, I had recently come across `react-gist`. This package provides the user with a gist component. This would serve as a perfect use-case for a MDX file, and would solve my gist rendering problem.
+
+Once I had `gatsby-plugin-mdx` set up properly, all I needed to do was import, and include my gist components wherever I needed them:
+
+import Gist from "react-gist"
+
+<Gist id="fb695cda0d12970e932d105a83c79d91"></Gist>
+
+Easy!
+
+<br/>
+
+## Gotchas
+
+- Do not forget the quotes around your `id` string else your gist will not render
+
+- Please be aware that if you are using a frontmatter, you will need to include your import statement <i>after</i> the frontmatter. 
+
+- If you are experiencing errors, be sure to try clearing your `.cache` and `public` folders by running `gatsby-clean.

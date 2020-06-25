@@ -41,7 +41,7 @@ type Data = {
 const BlogIndex = ({ data, location }: PageProps<Data>) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMdx.edges
-
+  console.log(posts)
   return (
     <Layout location={location} title={siteTitle}>
       {/* <SEO title="All posts" /> */}
@@ -63,7 +63,13 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: {
+        fields: { slug: { ne: null } }
+        frontmatter: { published: { eq: true } }
+      }
+    ) {
       edges {
         node {
           excerpt
