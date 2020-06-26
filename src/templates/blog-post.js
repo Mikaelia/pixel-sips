@@ -41,7 +41,7 @@ const PageWrapper = styled.div`
 
     header {
       text-align: center;
-      padding-bottom: 2rem;
+      padding-bottom: 0 1rem 2rem 1rem;
       @media ${device.tablet} {
         padding-bottom: 5rem;
       }

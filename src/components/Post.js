@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { useSpring, animated } from "react-spring"
+import { device } from "../styled/globalStyles"
 
 const calc = (x, y) => [
   -(y - window.innerHeight / 2) / 40,
@@ -11,7 +12,8 @@ const calc = (x, y) => [
 const trans = (x, y, s) =>
   `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
 
-const StyledPost = styled(animated.div)`
+const AnimatedStyledPost = styled(animated.div)`
+  display: none;
   padding: 3rem;
   border-radius: 0.8rem;
   transition: 0.35s ease-out;
@@ -21,6 +23,35 @@ const StyledPost = styled(animated.div)`
   border-color: rgb(228, 228, 231);
   border-image: initial;
   height: 100%;
+
+  @media ${device.tablet} {
+    display: block;
+  }
+
+  :hover {
+    box-shadow: rgba(73, 73, 80, 0.4) 2px 4.45528px 6.06029px,
+      rgba(73, 73, 80, 0.05) 0px 10.7067px 14.5637px,
+      rgba(73, 73, 80, 0.04) 0px 20.1597px 27.4222px,
+      rgba(73, 73, 80, 0.03) 0px 35.9615px 48.9165px,
+      rgba(73, 73, 80, 0.02) 0px 67.2619px 91.493px,
+      rgba(73, 73, 80, 0.01) 0px 161px 219px;
+    border-radius: 8px;
+  }
+`
+const StyledPost = styled.div`
+  padding: 3rem;
+  border-radius: 0.8rem;
+  transition: 0.35s ease-out;
+  background: #fff;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(228, 228, 231);
+  border-image: initial;
+  height: 100%;
+
+  @media ${device.tablet} {
+    display: none;
+  }
 
   :hover {
     box-shadow: rgba(73, 73, 80, 0.4) 2px 4.45528px 6.06029px,
@@ -87,26 +118,45 @@ export default function Post({ node }) {
   const title = node.frontmatter.title || node.fields.slug
 
   return (
-    <StyledPost
-      style={{ transform: props.xys.interpolate(trans) }}
-      onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
-      onMouseLeave={() => set({ xys: [0, 0, 1] })}
-    >
-      <StyledArticle key={node.fields.slug}>
-        <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-          <header>
-            <h3>{title}</h3>
-          </header>
-          <section>
-            <p
-              dangerouslySetInnerHTML={{
-                __html: node.frontmatter.description || node.excerpt,
-              }}
-            />
-          </section>
-          <div className="read-more">Read more</div>
-        </Link>
-      </StyledArticle>
-    </StyledPost>
+    <>
+      <AnimatedStyledPost
+        style={{ transform: props.xys.interpolate(trans) }}
+        onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+        onMouseLeave={() => set({ xys: [0, 0, 1] })}
+      >
+        <StyledArticle key={node.fields.slug}>
+          <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+            <header>
+              <h3>{title}</h3>
+            </header>
+            <section>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: node.frontmatter.description || node.excerpt,
+                }}
+              />
+            </section>
+            <div className="read-more">Read more</div>
+          </Link>
+        </StyledArticle>
+      </AnimatedStyledPost>
+      <StyledPost>
+        <StyledArticle key={node.fields.slug}>
+          <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+            <header>
+              <h3>{title}</h3>
+            </header>
+            <section>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: node.frontmatter.description || node.excerpt,
+                }}
+              />
+            </section>
+            <div className="read-more">Read more</div>
+          </Link>
+        </StyledArticle>
+      </StyledPost>
+    </>
   )
 }
