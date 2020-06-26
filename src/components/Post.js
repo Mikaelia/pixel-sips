@@ -24,7 +24,7 @@ const AnimatedStyledPost = styled(animated.div)`
   border-image: initial;
   height: 100%;
 
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     display: block;
   }
 
@@ -49,18 +49,8 @@ const StyledPost = styled.div`
   border-image: initial;
   height: 100%;
 
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     display: none;
-  }
-
-  :hover {
-    box-shadow: rgba(73, 73, 80, 0.4) 2px 4.45528px 6.06029px,
-      rgba(73, 73, 80, 0.05) 0px 10.7067px 14.5637px,
-      rgba(73, 73, 80, 0.04) 0px 20.1597px 27.4222px,
-      rgba(73, 73, 80, 0.03) 0px 35.9615px 48.9165px,
-      rgba(73, 73, 80, 0.02) 0px 67.2619px 91.493px,
-      rgba(73, 73, 80, 0.01) 0px 161px 219px;
-    border-radius: 8px;
   }
 `
 
