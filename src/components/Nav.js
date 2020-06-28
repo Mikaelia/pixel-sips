@@ -9,7 +9,7 @@ const Navigation = styled.nav`
   @media ${device.mobileL} {
     display: block;
     padding: 3rem;
-    padding-bottom: 0;
+    padding-bottom: 2rem;
     background: ${props =>
       props.location === "/" ? "transparent" : props.theme.black};
     z-index: 1;
@@ -22,6 +22,7 @@ const Navigation = styled.nav`
     list-style: none;
     align-items: center;
     margin-left: 0;
+    margin-bottom: 0;
   }
 
   ul * + * {
@@ -37,9 +38,7 @@ const Navigation = styled.nav`
     text-decoration: none;
     font-size: 1.4rem;
     font-weight: 500;
-
     letter-spacing: 0.2rem;
-
     color: transparent;
     position: relative;
     -webkit-background-clip: text, padding-box;
