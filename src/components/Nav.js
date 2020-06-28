@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { device } from "../styled/globalStyles"
+
 const Navigation = styled.nav`
   display: none;
 
@@ -82,7 +83,7 @@ const Navigation = styled.nav`
 `
 export default function Nav(props) {
   return (
-    <Navigation location={props.location.pathname} className="nav">
+    <Navigation location={props.location.pathname}>
       <ul className="nav-list">
         <li className="nav-list-item">
           <Link className="nav-link" activeClassName="nav-link--active" to="/">

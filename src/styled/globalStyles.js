@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     html {
         font-size: 62.5%;
         height: 100%;
+        overflow-y: visible;
     }
 
     body {
@@ -23,7 +24,7 @@ export const GlobalStyle = createGlobalStyle`
         height: 100%;
         width:  100%;
         overflow-x:hidden;
-        overflow-y: scroll;
+  
 -webkit-overflow-scrolling: touch;
 
         > *{
