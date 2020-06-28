@@ -4,6 +4,7 @@ import Footer from "./Footer.js"
 import { Location } from "@reach/router"
 import styled, { ThemeProvider } from "styled-components"
 import { GlobalStyle, theme } from "../styled/globalStyles"
+import { Helmet } from "react-helmet"
 
 const MainWrapper = styled.div`
   width: 100%;
@@ -26,17 +27,19 @@ const MainWrapper = styled.div`
 const Layout = ({ children }) => {
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>PixelSips</title>
+      </Helmet>
       <ThemeProvider theme={theme}>
-        <>
-          <GlobalStyle />
-          <MainWrapper>
-            <Location>
-              {({ location }) => <Nav location={location}></Nav>}
-            </Location>
-            <main>{children}</main>
-            <Footer />
-          </MainWrapper>
-        </>
+        <GlobalStyle />
+        <MainWrapper>
+          <Location>
+            {({ location }) => <Nav location={location}></Nav>}
+          </Location>
+          <main>{children}</main>
+          <Footer />
+        </MainWrapper>
       </ThemeProvider>
     </>
   )
