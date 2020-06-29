@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import Tag from "./Tag"
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -11,6 +12,7 @@ const StyledLink = styled(Link)`
 
   .description {
     color: ${props => props.theme.black};
+    margin-bottom: 2rem;
   }
 `
 const StyledSippet = styled.div`
@@ -23,6 +25,18 @@ const StyledSippet = styled.div`
   border-radius: 0.8rem;
   transition: 0.35s ease;
   cursor: pointer;
+  position: relative;
+
+  .tags {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .tag {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+  }
 `
 export default function Sippet({ node }) {
   const title = node.frontmatter.title || node.fields.slug
@@ -33,13 +47,19 @@ export default function Sippet({ node }) {
         <header>
           <h3>{title}</h3>
         </header>
-        <section>
+        <section className="snippet-body">
           <p
             className="description"
             dangerouslySetInnerHTML={{
               __html: node.frontmatter.description || node.excerpt,
             }}
           ></p>
+          <div className="tags">
+            {node.frontmatter.tags &&
+              node.frontmatter.tags
+                .split(" ")
+                .map(v => <Tag tagName={v} className="tag"></Tag>)}
+          </div>
         </section>
       </StyledSippet>
     </StyledLink>

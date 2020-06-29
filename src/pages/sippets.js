@@ -33,7 +33,6 @@ const StyledDiv = styled.div`
 `
 export default function Sippets({ data }) {
   const sippets = data.allMdx.edges
-  console.log(sippets)
   return (
     <Layout>
       <PageContainer>
@@ -83,6 +82,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            tags
           }
         }
       }
