@@ -88,7 +88,7 @@ const Navigation = styled.nav`
   li:nth-child(3) a {
     background-image: linear-gradient(
       to top,
-      ${props => props.theme.lightBlue} 50%,
+      ${props => props.theme.yellow} 50%,
       ${props => props.theme.white} 50%
     );
   }
@@ -146,6 +146,18 @@ export default function Nav(props) {
         y: 70,
       },
       "-=.5"
+    )
+    tl.to(
+      [indicator1.current],
+      {
+        duration: 0.5,
+        ease: "expo",
+        width: "100%",
+        x: -87,
+        y: 85,
+        height: 2,
+      },
+      "+=.5"
     )
   }, [])
   return (
