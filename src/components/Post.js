@@ -25,6 +25,7 @@ const AnimatedStyledPost = styled(animated.div)`
   border-image: initial;
   height: 100%;
   cursor: pointer;
+  box-shadow: 0px 10.7067px 14.5637px rgba(73, 73, 80, 0.09);
 
   @media ${device.laptop} {
     display: block;

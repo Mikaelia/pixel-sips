@@ -14,6 +14,10 @@ const MainSection = styled.section`
   @media ${device.tablet} {
     padding: 3rem 3rem;
   }
+  .grid-wrapper {
+    margin: auto;
+    max-width: 1350px;
+  }
 `
 type Data = {
   site: {
@@ -48,7 +52,9 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
       <MainHeader />
 
       <MainSection>
-        <PostGrid posts={posts} />
+        <div className="grid-wrapper">
+          <PostGrid posts={posts} />
+        </div>
       </MainSection>
     </Layout>
   )

@@ -1,0 +1,42 @@
+---
+title: Javascript's Function Argument Object
+date: "2020-06-30"
+description: ""
+published: true
+tags: Javascript
+---
+import Gist from "react-gist"
+
+`arguments` is an array-like object available within Javascript functions. As its name suggests, `arguments` contains the values of the arguments passed to the function within which it is accessed.
+
+Similar to arrays, the arguments object has a length property. In addition, its values are ordered, and can be retrieved via index:
+
+<Gist  id="74cce10dc068da35732a40c3153ee80c"></Gist>
+
+Unlike arrays,  `arguments` does not have any built-in array methods like map(), filter(), splice(), etc.
+
+Nevertheless, we can convert `arguments` into an array easily:
+
+<Gist  id="28d44231c650f198c9a41e61601d1e64"></Gist>
+
+This information is particularly useful when working with functions that are called with more arguments than they have been declared to accept. It’s also useful for creating functions that can be passed a variable number of arguments:
+
+<Gist id="ec3db6f400f15b9225c74526470682ad"></Gist>
+
+## Arrow Functions and the `rest` Parameter
+
+Arrow functions do not have an arguments binding in their scope. In other words, no arguments `object` is created they are called.
+
+However, if you do want to capture arguments in an arrow function, you can use the rest parameter.
+
+With the rest parameter (...args), the memoize function below will accept a function as a parameter, and call it with whatever number of arguments are provided. This pattern allows memoize to be incredible flexible in it's application.
+
+<Gist id="baa337365206b12b7d68d2aa1fecdd03" />
+
+Another familiar example is the debounce method. Here, a generic callback function can again accept any number of arguments: 
+
+<Gist id="8c2d65971545f3479e29048aa6a5edf9" />
+
+Rest parameters can also be combined with other parameters, but must always be included as the last parameter
+
+<Gist id="01071a2d8f4cc904648aa5a1de713a27" />

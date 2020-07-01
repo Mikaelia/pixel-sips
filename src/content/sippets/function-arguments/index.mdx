@@ -1,17 +1,20 @@
 ---
-title: Obtaining function arguments
+title: Javascript's Function Argument Object
 date: "2020-06-07"
 description: "How and how not to use them"
 published: false
 tags: Javascript
 ---
 
-In Javscript, we have access to function arguments through the object `arguments`.
+It's useful to know how to access the arguments passed into a function. This information is handy when functions are called with more arguments than they are formally declared to accept.  This technique is useful for functions that can be passed a variable number of arguments, such as Math.min(). we don't know how many arguments have been passed, or when we need to apply this data to the parameters of another function.
 
+
+
+In Javscript, we have access to function arguments through the object `arguments`.
 
 *DEMO HERE*
 
-The arguments object is not available in an arrow function. Arrow functions do not have an own arguments binding in their scope; no arguments object is created when calling them.
+Arrow functions do not have an own arguments binding in their scope; no arguments object is created when calling them.
 
 However, if you do want to capture the args for your arrow function, you can simply use a rest parameter
 

@@ -156,6 +156,8 @@ export default function Nav(props) {
         x: -87,
         y: 85,
         height: 2,
+        backgroundImage: "linear-gradient(to right, #D90282, transparent)",
+        background: "transparent",
       },
       "+=.5"
     )
