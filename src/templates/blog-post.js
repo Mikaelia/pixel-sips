@@ -95,6 +95,11 @@ const PageWrapper = styled.div`
         margin-top: 3rem;
       }
 
+      h3 {
+        font-size: 2rem;
+        margin-top: 2rem;
+      }
+
       a {
         color: ${props => props.theme.pink};
       }
