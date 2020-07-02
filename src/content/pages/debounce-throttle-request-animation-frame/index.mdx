@@ -1,0 +1,29 @@
+---
+title: Debounce vs. Throttle
+date: "2020-07-01"
+description: ""
+published: true
+---
+
+After setting up document or window event listeners such as resize or scroll, events are emitted, captured, and handled many times a second. This high rate of execution can significantly impact the performance of a website or application. Here, debounce and throttling methods can really shine.
+
+Debouncing and throttling are two techniques used to control the number of times your event handler responds to emitted events. These are the main differences between them:
+
+## Debouncing
+
+Debouncing is used to group a burst of events into one. This is particularly useful for features like autocomplete. Using a debounce function from a utility library like Lodash, users can define whether they would like their event to fire at the beginning of the burst, or at the end. An autocomplete implementation would use a debounce to wait until events have stopped firing (users have stopped typing) before executing the event handler.  
+
+## Throttling
+
+Unlike with debouncing where an event is handled at the beginning or end of a burst, throttling guarantees a constant flow of callback executions every X milliseconds. This is useful in situations such as when a user needs to detect the scroll position of a page to trigger an animation. A throttle function is also available via Lodash.
+
+One important thing to note about a lot of throttle functions is that they do not fire the callback at the end of the throttling phase. This can result in the last call being skipped, and can negatively impact interactions that require this final call.
+
+Alternatively, using `requestAnimationFrame` to throttle events like resize, scroll, wheel, keydown, mousemouve, touchmove, and pointermove might be a preferable approach. See [here](https://greensock.com/forums/topic/17577-requestanimationframe-vs-throttle/)
+
+## requestAnimationFrame
+
+`requestAnimationFrom` is a throttle alternative that is supported natively in the browser. `requestAnimationFrame` will limit the execution of an event handler to six times a second. 
+
+<br/>
+Debounce, throttle and requestAnimationFrame all work to optimize the handling of rapidly emitted events. If ever you are experiencing lag due to expensive event listeners, take a shot at implementing whichever of these solutions best fits your use case.

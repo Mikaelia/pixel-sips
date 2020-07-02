@@ -92,6 +92,7 @@ const PageWrapper = styled.div`
 
       h2 {
         font-size: 3rem;
+        margin-top: 3rem;
       }
 
       a {
