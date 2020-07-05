@@ -104,14 +104,19 @@ export default function Footer() {
               rel="noopener noreferrer"
               target="_blank"
             >
-              <CodepenIcon fill="rgba(231, 237, 245, 1.00)" />
+              <IconContainer>
+                <CodepenIcon fill="rgba(231, 237, 245, 1.00)" />
+              </IconContainer>
             </a>
+
             <a
               href="https://github.com/Mikaelia"
               rel="noopener noreferrer"
               target="_blank"
             >
-              <GithubIcon fill="rgba(231, 237, 245, 1.00)" />
+              <IconContainer>
+                <GithubIcon fill="rgba(231, 237, 245, 1.00)" />
+              </IconContainer>
             </a>
           </div>
         </div>
