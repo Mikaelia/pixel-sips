@@ -88,7 +88,7 @@ module.exports = {
         short_name: `PixelSips`,
         start_url: `/`,
         display: `minimal-ui`,
-        icon: `content/assets/cup.png`,
+        icon: `content/assets/cup.svg`,
       },
     },
     `gatsby-plugin-react-helmet`,
