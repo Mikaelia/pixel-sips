@@ -181,7 +181,7 @@ export default function Nav(props) {
             About
           </Link>
         </li>
-        <li className="nav-list-item">
+        {/* <li className="nav-list-item">
           <Link
             className="nav-link"
             activeClassName="nav-link--active"
@@ -190,7 +190,7 @@ export default function Nav(props) {
             <span className="indicator" ref={indicator3}></span>
             Sippets
           </Link>
-        </li>
+        </li> */}
       </ul>
     </Navigation>
   )
