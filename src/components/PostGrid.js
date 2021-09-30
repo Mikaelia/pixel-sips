@@ -8,6 +8,7 @@ const StyledGrid = styled.div`
   width: 100%;
   grid-template-columns: 1fr;
   grid-gap: 1rem;
+  margin-top: 9rem;
 
   @media ${device.mobileL} {
     grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
@@ -19,5 +20,9 @@ export default function PostGrid({ posts }) {
   const postList = posts.map(({ node }, i) => {
     return <Post node={node} key={i}></Post>
   })
-  return <StyledGrid>{postList}</StyledGrid>
+  return (
+    <>
+      <StyledGrid>{postList}</StyledGrid>
+    </>
+  )
 }

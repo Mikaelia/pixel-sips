@@ -1,186 +1,145 @@
-import React, { useRef, useEffect } from "react"
+import React, { useRef, useEffect, useState } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { device } from "../styled/globalStyles"
-import gsap from "gsap"
+
+import NavLogo from "./NavLogo"
+
+import Logo from "./Logo"
 
 const Navigation = styled.nav`
-  display: none;
+  transition: all .3s ease;
+  display: ${props => (props.location === "/" ? "none" : "block")};
+  position: sticky;
+  top: 0;
+  background: ${props => props.theme.black};
+  z-index: 1;
+  width: 100%;
+  height: 7.1rem;
 
-  @media ${device.mobileL} {
-    display: block;
-    padding: 3rem;
-    padding-bottom: 2rem;
-    background: ${props =>
-      props.location === "/" ? "transparent" : props.theme.black};
-    z-index: 1;
-    position: ${props => (props.location === "/" ? "absolute" : "relative")};
-    width: 100%;
+  div {
+    margin: 0;
+    font-family: "Muli", sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.3rem;
+    font-size: 3rem;
+    color: white;
+    transition: all .3s ease;
+  }
+
+  span {
+    color: ${props => props.theme.yellow};
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .cup {
+    width: 5rem;
+    height: 3rem;
   }
 
   ul {
     display: flex;
     list-style: none;
     align-items: center;
+    justify-content: center;
     margin-left: 0;
     margin-bottom: 0;
+    transform: translateY(1rem);
+    padding: 0 2rem;
   }
 
-  ul * + * {
-    margin-left: 5rem;
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 32rem;
+    right: 8rem;
   }
 
-  li:first-of-type a {
-    font-size: 2rem;
-    letter-spacing: 0.1rem;
+
+  li:hover .home-about-link::before {
+    background-position: bottom;
+    background: ${props => props.theme.pink};
   }
 
-  a {
-    text-decoration: none;
-    font-size: 1.4rem;
-    font-weight: 500;
-    letter-spacing: 0.2rem;
-    color: transparent;
-    position: relative;
-    -webkit-background-clip: text, padding-box;
-    background-clip: text, padding-box;
-    -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(
-      to top,
-      ${props => props.theme.pink} 50%,
-      ${props => props.theme.white} 50%
-    );
-    background-size: 100% 200%;
-    background-position: top;
-    transition: background-position 1s ease;
+  svg {
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+  }
 
-    &:hover {
-      background-position: bottom;
+  &.small{
+    transition-delay: .1s;
+    transform translateY(-3.5rem);
+
+    ul {
+      transition: all .1s ease;
+      transform: translateY(3.5rem);
     }
 
-    .indicator {
-      content: "";
-      display: none;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      top: -58px;
-      width: 7px;
-      height: 7px;
-      background: ${props => props.theme.pink};
+    div {
+      padding: 0;
+      padding-right: .75rem;
+      font-size: 2rem;
+    }
+
+    .cup {
+      height: 2.5rem;
+      width: 2.5rem;
     }
   }
 
-  li:nth-child(1) a {
-    background-image: linear-gradient(
-      to top,
-      ${props => props.theme.pink} 50%,
-      ${props => props.theme.white} 50%
-    );
-  }
-  li:nth-child(2) a {
-    background-image: linear-gradient(
-      to top,
-      ${props => props.theme.yellow} 50%,
-      ${props => props.theme.white} 50%
-    );
-  }
-  li:nth-child(3) a {
-    background-image: linear-gradient(
-      to top,
-      ${props => props.theme.yellow} 50%,
-      ${props => props.theme.white} 50%
-    );
-  }
-
-  .nav-link--active {
-    .indicator {
-      display: block;
-    }
-  }
 `
 export default function Nav(props) {
-  const indicator1 = useRef(null)
-  const indicator2 = useRef(null)
-  const indicator3 = useRef(null)
-  var tl = gsap.timeline()
+  const [animationCount, setAnimationCount] = useState(0)
+  const [small, setSmall] = useState(false)
 
   useEffect(() => {
-    tl.to([indicator1.current, indicator2.current, indicator3.current], {
-      duration: 1.5,
-      ease: "bounce.out",
-      y: 55,
-    })
-    tl.to(
-      [indicator2.current, indicator3.current],
-      {
-        duration: 1.5,
-        left: "115%",
-        rotate: "360deg",
-      },
-      "-=1"
-    )
-    tl.to(
-      [indicator2.current, indicator3.current],
-      {
-        duration: 0.5,
-        ease: "bounce.out",
-        y: 65,
-      },
-      "-=.5"
-    )
-    tl.to(
-      [indicator1.current],
-      {
-        duration: 1.5,
-        left: "105%",
-        rotate: "360deg",
-      },
-      "-=1.5"
-    )
-    tl.to(
-      [indicator1.current],
-      {
-        duration: 0.5,
-        ease: "bounce.out",
-        y: 70,
-      },
-      "-=.5"
-    )
-    tl.to(
-      [indicator1.current],
-      {
-        duration: 0.5,
-        ease: "expo",
-        width: "100%",
-        x: -87,
-        y: 85,
-        height: 2,
-        backgroundImage: "linear-gradient(to right, #D90282, transparent)",
-        background: "transparent",
-      },
-      "+=.5"
-    )
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", () => {
+        setSmall(window.pageYOffset >= 100)
+      })
+    }
   }, [])
+
   return (
-    <Navigation location={props.location.pathname}>
-      <ul className="nav-list">
-        <li className="nav-list-item">
-          <Link className="nav-link" activeClassName="nav-link--active" to="/">
-            Mikaela Gurney
-            <span className="indicator" ref={indicator1}></span>
-          </Link>
-        </li>
-        <li className="nav-list-item">
-          <Link
-            className="nav-link"
-            activeClassName="nav-link--active"
-            to="/about"
+    <Navigation
+      location={props.location.pathname}
+      className={`nav   ${small ? "small" : ""}`}
+    >
+      <ul>
+        <Link to="/">
+          <div
+            className={`${small ? "small" : ""}`}
+            onMouseEnter={() => setAnimationCount(animationCount + 1)}
           >
-            <span className="indicator" ref={indicator2}></span>
-            About
-          </Link>
-        </li>
+            Pixel
+            <span>
+              Sip<span className="s">s</span>
+            </span>
+          </div>
+        </Link>
+        <NavLogo triggerAnimation={animationCount}></NavLogo>
+
+        {/* {props.location.pathname === "/" ? (
+          <li className="nav-list-item">
+            <Link className="home-about-link" to="/about">
+              <span></span>?
+            </Link>
+          </li>
+        ) : (
+          <li className="nav-list-item">
+            <Link className="home-about-link" to="/">
+              <span></span>
+              {svg()}
+            </Link>
+          </li>
+        )} */}
+
         {/* <li className="nav-list-item">
           <Link
             className="nav-link"

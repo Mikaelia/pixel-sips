@@ -9,6 +9,15 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: inherit;
     }
 
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    ::selection {
+      background: ${props => props.theme.lightBlue};
+      color: white;
+    }
+
     html {
         font-size: 62.5%;
         height: 100%;

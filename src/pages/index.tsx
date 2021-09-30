@@ -9,7 +9,7 @@ import MainHeader from "../components/MainHeader.js"
 import { device } from "../styled/globalStyles"
 
 const MainSection = styled.section`
-  background: #e7edf3;
+  background:${props => props.theme.black};
   padding: 3rem 1rem;
   @media ${device.tablet} {
     padding: 3rem 3rem;

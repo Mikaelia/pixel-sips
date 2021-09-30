@@ -12,7 +12,7 @@ import {
 const StyledFooter = styled.footer`
   background: ${props => props.theme.black};
   color: ${props => props.theme.white};
-  border-top-right-radius: 3rem;
+  width: 100%;
 
   .content {
     display: flex;
@@ -65,7 +65,6 @@ export default function Footer() {
       <div className="content">
         <span>© 2020-present Mikaela Gurney.</span>
         <div className="link-container">
-          <h4>Links</h4>
           <div className="links">
             <a
               href="https://www.mikaelagurney.com"
