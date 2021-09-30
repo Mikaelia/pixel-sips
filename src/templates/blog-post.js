@@ -4,6 +4,7 @@ import Layout from "../components/Layout"
 // import SEO from "../components/seo"
 import styled from "styled-components"
 import { device } from "../styled/globalStyles"
+
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 const StyledPost = styled.div`

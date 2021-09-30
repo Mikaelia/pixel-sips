@@ -16,9 +16,11 @@ const HeaderSection = styled.section`
   color: ${props => props.theme.white};
   font-size: 4rem;
   border-bottom-left-radius: 3rem;
+  margin-bottom: -9rem;
 
   @media ${device.mobileL} {
     height: 35rem;
+    margin-bottom: 0;
   }
 `
 const StyledCanvas = styled.canvas`
