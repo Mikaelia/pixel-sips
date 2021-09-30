@@ -7,16 +7,22 @@ import { GlobalStyle, theme } from "../styled/globalStyles"
 import { Helmet } from "react-helmet"
 
 const MainWrapper = styled.div`
+  // padding-top: 3rem;
   width: 100%;
-  height: 100%;
+  // height: 100%;
+  height: ${props => props.location.pathname === "/" && "100%"};
   /* max-width: 1200px; */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-
+  align-items: center;
+  background: ${props =>
+    props.location.pathname === "/" ? props.theme.black : "white"};
   main {
     flex: 1 0 auto;
     z-index: 0;
+    background: rgb(18, 23, 46);
+    position: relative;
   }
 
   footer {
@@ -33,13 +39,19 @@ const Layout = ({ children }) => {
       </Helmet>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <MainWrapper>
-          <Location>
+        <Location>
+          {({ location }) => (
+            <MainWrapper location={location}>
+              <Nav location={location}></Nav>
+              <main>{children}</main>
+              <Footer />
+            </MainWrapper>
+          )}
+
+          {/* <Location>
             {({ location }) => <Nav location={location}></Nav>}
-          </Location>
-          <main>{children}</main>
-          <Footer />
-        </MainWrapper>
+          </Location> */}
+        </Location>
       </ThemeProvider>
     </>
   )

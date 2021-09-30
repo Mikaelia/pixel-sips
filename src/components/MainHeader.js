@@ -12,7 +12,7 @@ const HeaderSection = styled.section`
   height: 20rem;
   width: 100vw;
   overflow: hidden;
-  background: ${props => props.theme.black};
+  background: transparent;
   color: ${props => props.theme.white};
   font-size: 4rem;
   border-bottom-left-radius: 3rem;
@@ -20,12 +20,13 @@ const HeaderSection = styled.section`
   @media ${device.mobileL} {
     height: 35rem;
   }
-
-  canvas {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
+`
+const StyledCanvas = styled.canvas`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 `
 
 const MainHeader = () => {
@@ -127,14 +128,16 @@ const MainHeader = () => {
   }
 
   return (
-    <HeaderSection>
-      <canvas
+    <>
+      <StyledCanvas
         ref={canvasRef}
         width={canvasRef.offsetWidth}
         height={canvasRef.offsetHeight}
-      ></canvas>
-      <Logo />
-    </HeaderSection>
+      ></StyledCanvas>
+      <HeaderSection>
+        <Logo />
+      </HeaderSection>
+    </>
   )
 }
 

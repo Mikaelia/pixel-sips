@@ -39,29 +39,32 @@ const fill = keyframes`
 const spill = keyframes`
 0% {
   top: 0px;
-    left: 15px;
+  left: 15px;
 }
 
 10% {
-top: -5px;
+  top: -5px;
+}
+
+29%{
+  opacity:1;
 }
 
 30% {
-transform: rotate(100deg);
-top: 5px;
-left: -8px;
+  transform: rotate(100deg);
+  top: 5px;
+  left: -8px;
+  opacity: 0
 }
 
 40% {
-
   top: -5px;
 }
 
 60% {
-transform: rotate(180deg);
+  transform: rotate(180deg);
   top: 10px;
   left: 20px;
-
 }
 
 
@@ -71,12 +74,13 @@ transform: rotate(180deg);
 
 100% {
 z-index: -1;
+ opacity: 0
 }
 
 `
 
 const StyledLogo = styled.div`
-  font-size: 4rem;
+  font-size: 8.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,6 +101,11 @@ const StyledLogo = styled.div`
     font-weight: 700;
     letter-spacing: 0.3rem;
   }
+
+  span {
+    color: ${props => props.theme.yellow};
+  }
+
   .s {
     color: transparent;
     position: relative;
@@ -105,10 +114,12 @@ const StyledLogo = styled.div`
     -webkit-text-fill-color: transparent;
     background-image: linear-gradient(
       to top,
-      ${props => props.theme.white} 50%,
-      ${props => props.theme.yellow} 50%
+      ${props => props.theme.white} 33%,
+      ${props => props.theme.yellow} 33%,
+      ${props => props.theme.yellow} 66%,
+      ${props => props.theme.white} 66%
     );
-    background-size: 100% 200%;
+    background-size: 100% 250%;
     background-position: bottom;
     animation: ${fill} 2s ease infinite;
   }
@@ -122,7 +133,7 @@ const StyledLogo = styled.div`
     background-image: linear-gradient(${props => props.theme.pink} 50% white);
     background: ${props => props.theme.pink};
     box-shadow: inset -7px 0 2px 2px #ba016f;
-    transform: rotate(-20deg);
+    transform: rotate(-20deg) scale(2);
     animation: ${rotate} 2s linear infinite;
     z-index: 0;
     :hover {
@@ -173,7 +184,11 @@ export default function Logo() {
   return (
     <StyledLogo>
       <p>
-        PixelSip<span className="s">s</span>
+        Pixel
+        <span className="S">S</span>
+        <span className="i">i</span>
+        <span className="p">p</span>
+        <span className="s">s</span>
       </p>
       <div className="cup-wrapper">
         <div className="splash"></div>

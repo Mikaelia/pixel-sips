@@ -19,5 +19,9 @@ export default function PostGrid({ posts }) {
   const postList = posts.map(({ node }, i) => {
     return <Post node={node} key={i}></Post>
   })
-  return <StyledGrid>{postList}</StyledGrid>
+  return (
+    <>
+      <StyledGrid>{postList}</StyledGrid>
+    </>
+  )
 }
