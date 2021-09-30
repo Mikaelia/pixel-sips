@@ -23,7 +23,8 @@ const MainWrapper = styled.div`
     z-index: 0;
     background: rgb(18, 23, 46);
     position: relative;
-    padding-bottom: 15rem;
+    padding-bottom: ${props =>
+    props.location.pathname === "/" ? "15rem" : "0"};
   }
 
   footer {
