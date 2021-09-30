@@ -36,9 +36,7 @@ export const GlobalStyle = createGlobalStyle`
   
 -webkit-overflow-scrolling: touch;
 
-        > *{
-            height: 100%;
-        }
+       
 
         #gatsby-focus-wrapper {
             height: 100%;
