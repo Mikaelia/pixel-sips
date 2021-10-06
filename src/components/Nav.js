@@ -1,11 +1,8 @@
-import React, { useRef, useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { device } from "../styled/globalStyles"
 
 import NavLogo from "./NavLogo"
-
-import Logo from "./Logo"
 
 const Navigation = styled.nav`
   transition: all .3s ease;
@@ -124,32 +121,6 @@ export default function Nav(props) {
           </div>
         </Link>
         <NavLogo triggerAnimation={animationCount}></NavLogo>
-
-        {/* {props.location.pathname === "/" ? (
-          <li className="nav-list-item">
-            <Link className="home-about-link" to="/about">
-              <span></span>?
-            </Link>
-          </li>
-        ) : (
-          <li className="nav-list-item">
-            <Link className="home-about-link" to="/">
-              <span></span>
-              {svg()}
-            </Link>
-          </li>
-        )} */}
-
-        {/* <li className="nav-list-item">
-          <Link
-            className="nav-link"
-            activeClassName="nav-link--active"
-            to="/sippets"
-          >
-            <span className="indicator" ref={indicator3}></span>
-            Sippets
-          </Link>
-        </li> */}
       </ul>
     </Navigation>
   )

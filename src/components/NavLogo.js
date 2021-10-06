@@ -1,8 +1,6 @@
-import React, { useRef, useEffect } from "react"
+import React, { useEffect } from "react"
 import { animated } from "react-spring"
 import { useBoop } from "../utility/useBoop"
-
-import Logo from "./Logo"
 
 export default function NavLogo(props) {
   const [style, trigger] = useBoop({ rotation: 20 })

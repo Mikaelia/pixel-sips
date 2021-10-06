@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import styled, { keyframes } from "styled-components"
 import { device } from "../styled/globalStyles"
 
@@ -87,6 +87,12 @@ const StyledLogo = styled.div`
   position: absolute;
   transform: scale(.7);
   margin-left: -4rem;
+  opacity: .9;
+  cursor:pointer;
+
+.paused {
+  animation-play-state: paused;
+}
 
  @media ${device.tablet} {
     font-size: 8.5rem;
@@ -123,14 +129,15 @@ const StyledLogo = styled.div`
     -webkit-text-fill-color: transparent;
     background-image: linear-gradient(
       to top,
-      ${props => props.theme.white} 33%,
+      rgba(42, 51, 91, 0.3) 33%,
       ${props => props.theme.yellow} 33%,
       ${props => props.theme.yellow} 66%,
-      ${props => props.theme.white} 66%
+      rgba(42, 51, 91, 0.3) 66%
     );
     background-size: 100% 250%;
     background-position: bottom;
     animation: ${fill} 2s ease infinite;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.18);
   }
 
   .cup {
@@ -161,7 +168,14 @@ const StyledLogo = styled.div`
     animation: ${spill} 2s infinite;
   }
 `
-export default function Logo() {
+export default function Logo({ stopped }) {
+  const [paused, setPaused] = useState(false)
+
+  useEffect(() => {
+    setPaused(stopped)
+    console.log(stopped)
+  }, [stopped])
+
   return (
     <StyledLogo>
       <p>
@@ -169,12 +183,21 @@ export default function Logo() {
         <span className="S">S</span>
         <span className="i">i</span>
         <span className="p">p</span>
-        <span className="s">s</span>
+        <span
+          style={{ animationPlayState: paused ? "paused" : "running" }}
+          className="s"
+        >
+          s
+        </span>
       </p>
       <div className="cup-wrapper">
-        <div className="splash"></div>
+        <div
+          style={{ animationPlayState: paused ? "paused" : "running" }}
+          className="splash"
+        ></div>
         {/* <div className="cup"></div> */}
         <svg
+          style={{ animationPlayState: paused ? "paused" : "running" }}
           className="cup"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 61.64 56.81"
