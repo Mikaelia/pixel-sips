@@ -1,0 +1,42 @@
+---
+title: Webhooks
+date: "2021-10-26"
+description: ""
+published: true
+---
+
+Webhooks, sometimes called web callbacks or HTTP push APIs, are simple on-to-one connections that allow real-time data to be sent from one application to a unique URL provided by another application whenever a specified event occurs.
+
+## Consuming a Webhook
+
+The first step in consuming a webhook is giving the webhook provider (where the event is triggered) a URL to deliver requests to. This is most often done through a backend panel or an API.
+
+Once a tracked event occurs on the trigger application, data is serialized and sent to the webhook URL of the destination application via an HTTP request. The destination application contains the logic to be executed upon receiving the webhook request payload. It can then send a callback message, often with an HTTP status code such as 302 if the data was received successfully, or 404 if not.
+
+Webhooks take the form of GET or POST requests depending on the webhooks provider. While GET requests have payloads appended to the webhook URL as a query string, POST webhook requests contain the payload in the request body, and might also include additional properties such as authentication tokens. The majority of webhooks will POST data in one of three ways: as JSON, as XML, or as form data.
+
+For example, say an application needs to dispatch an emailed copy of a receipt immediately after a customer checks out at a store. If there is a webhook URL registered to this payment action, the trigger application (where the event occured) might send a HTTP POST, with a body containing order information, to the webhook route belonging to the destination application. Upon receiving this information, further action to compose and send that automated email will take place.
+
+## Webhooks vs APIs
+
+Similar to webhooks, APIs provide applications with a means to receive data. While webhooks involve pushing data to an application when specific events occur, APIs allow clients to make requests to retrieve, edit, add, and remove data residing elsewhere.
+
+If a client wishes to detect when new information is available or be notified of backend events via an API, it must periodically send a request to the relevant API to check for updates. This pattern of making requests at fixed intervals regardless whether or not data has changed is known as polling.
+
+Polling intervals must be highly frequent for returning “real time” data. In contrast, webhooks send data to an application if and only when that data has changed.
+
+However, polling may be better suited for use-cases not requiring real-time updates. In the event of rapidly changing data, polling a server every five to ten minutes to fetch needed information is less work for a system and could potentially consume fewer resources than webhooks, which will fire after every tracked change. Improperly configured servers may be overwhelmed by the high load volume of requests. Applications must therefore be designed with the expected scale of each webhook in mind.
+
+## What about WebSockets?
+
+Webhooks and WebSockets both solve the problem of real time communication in different ways.
+
+While webhooks are mostly used by two servers to pass information, WebSockets are used primarily for server-to-client (mostly web browsers) communication.
+
+WebSockets facilitate a two-way information stream between server and client, and keep the socket connection open for as long as required to allow numerous transfers of information. With webhooks, the connection is terminated once a response has been returned.
+
+With regards to communication protocols, WebSocket uses its own custom WS protocol while webhooks use regular HTTP.
+
+## Conclusion
+
+In short, webhooks are a tool for automatically pushing fresh data to a server sans polling. Due to their utility and ease of implementation, webhooks are quickly becoming ubiquitous in real-time software architectures.
