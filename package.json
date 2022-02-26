@@ -34,7 +34,7 @@
     "gatsby-transformer-sharp": "^2.5.5",
     "gsap": "^3.8.0",
     "konva": "^6.0.0",
-    "prismjs": "^1.25.0",
+    "prismjs": "^1.27.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-gist": "^1.2.1",
